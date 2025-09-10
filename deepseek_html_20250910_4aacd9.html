@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUNIA TV - Streaming Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0f0f1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, #1a1a2e, #16213e);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: #ff4d94;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #ff4d94, #6a67ce);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: #e6e6ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ff4d94;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #ccccff;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .featured-video {
+            background: #1a1a2e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe, 
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #ff4d94;
+        }
+        
+        .video-info p {
+            color: #ccccff;
+            margin-bottom: 15px;
+        }
+        
+        .video-meta {
+            display: flex;
+            gap: 15px;
+            color: #a0a0d0;
+            font-size: 0.9rem;
+        }
+        
+        /* Movie List */
+        .movies-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: #ff4d94;
+        }
+        
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .movie-card {
+            background: #1a1a2e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .movie-thumb {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+        }
+        
+        .movie-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .movie-card:hover .movie-thumb img {
+            transform: scale(1.1);
+        }
+        
+        .movie-info {
+            padding: 15px;
+        }
+        
+        .movie-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .movie-info p {
+            color: #a0a0d0;
+            font-size: 0.9rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        .sidebar h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #ff4d94;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #2a2a4a;
+        }
+        
+        .admin-info {
+            background: linear-gradient(to right, #16213e, #1a1a2e);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .admin-info h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #6a67ce;
+        }
+        
+        .admin-info p {
+            color: #ccccff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .recent-uploads {
+            margin-top: 25px;
+        }
+        
+        .upload-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #2a2a4a;
+        }
+        
+        .upload-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .upload-thumb {
+            width: 60px;
+            height: 40px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .upload-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .upload-details {
+            flex: 1;
+        }
+        
+        .upload-details h4 {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        
+        .upload-details p {
+            font-size: 0.8rem;
+            color: #a0a0d0;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0c0c14;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff4d94;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: #ccccff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ff4d94;
+        }
+        
+        .copyright {
+            color: #a0a0d0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .movies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-play-circle"></i>
+                    <h1>DUNIA TV</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Movies</a></li>
+                        <li><a href="#">Series</a></li>
+                        <li><a href="#">New Releases</a></li>
+                        <li><a href="#">Categories</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Stream Your Favorite Movies & Series</h2>
+            <p>Exclusive content updated regularly by our admin team. No signup required - just start watching!</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Featured Video -->
+            <div class="featured-video">
+                <div class="video-container">
+                    <iframe id="featuredPlayer" src="https://www.youtube.com/embed/ge_UgErt4yo" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Amazing Nature Documentary</h3>
+                    <p>Experience the breathtaking beauty of our planet with this stunning nature documentary. Journey through lush forests, vast oceans, and majestic mountains as we explore Earth's most incredible natural wonders.</p>
+                    <div class="video-meta">
+                        <span><i class="far fa-clock"></i> 1h 32m</span>
+                        <span><i class="far fa-calendar"></i> 2023</span>
+                        <span><i class="fas fa-star"></i> 8.7/10</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Admin Panel</h3>
+                <div class="admin-info">
+                    <h4><i class="fas fa-user-shield"></i> Admin Dashboard</h4>
+                    <p>Only admins can upload content via GitHub repository. Users don't need to login to watch.</p>
+                    <p>Last update: September 9, 2023</p>
+                </div>
+
+                <div class="recent-uploads">
+                    <h3>Recent Uploads</h3>
+                    <div class="upload-item">
+                        <div class="upload-thumb">
+                            <img src="https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg" alt="Nature Documentary">
+                        </div>
+                        <div class="upload-details">
+                            <h4>Amazing Nature</h4>
+                            <p>Uploaded: Sep 8, 2023</p>
+                        </div>
+                    </div>
+                    <div class="upload-item">
+                        <div class="upload-thumb">
+                            <img src="https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg" alt="Space Exploration">
+                        </div>
+                        <div class="upload-details">
+                            <h4>Space Journey</h4>
+                            <p>Uploaded: Sep 7, 2023</p>
+                        </div>
+                    </div>
+                    <div class="upload-item">
+                        <div class="upload-thumb">
+                            <img src="https://i.ytimg.com/vi/5Peo-ivmupE/mqdefault.jpg" alt="Ocean Life">
+                        </div>
+                        <div class="upload-details">
+                            <h4>Ocean Mysteries</h4>
+                            <p>Uploaded: Sep 5, 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movies Section -->
+        <section class="movies-section">
+            <div class="section-header">
+                <h2>Featured Movies</h2>
+            </div>
+            <div class="movies-grid">
+                <!-- Movie 1 -->
+                <div class="movie-card" data-video="ge_UgErt4yo" data-title="Amazing Nature Documentary" data-description="Experience the breathtaking beauty of our planet with this stunning nature documentary. Journey through lush forests, vast oceans, and majestic mountains as we explore Earth's most incredible natural wonders.">
+                    <div class="movie-thumb">
+                        <img src="https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg" alt="Nature Documentary">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Amazing Nature</h3>
+                        <p>Explore the wonders of our natural world in stunning high definition.</p>
+                    </div>
+                </div>
+
+                <!-- Movie 2 -->
+                <div class="movie-card" data-video="-c63EZ4oyRg" data-title="Space Exploration Journey" data-description="Embark on an epic journey through our solar system and beyond. Discover the latest findings from NASA's missions, learn about black holes, and witness the beauty of distant galaxies in this captivating space documentary.">
+                    <div class="movie-thumb">
+                        <img src="https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg" alt="Space Exploration">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Space Journey</h3>
+                        <p>Travel through the cosmos and explore the mysteries of our universe.</p>
+                    </div>
+                </div>
+
+                <!-- Movie 3 -->
+                <div class="movie-card" data-video="5Peo-ivmupE" data-title="Ocean Life Documentary" data-description="Dive deep into the world's oceans to discover the incredible diversity of marine life. From coral reefs to the deep sea, this documentary reveals the fascinating creatures that inhabit our planet's waters.">
+                    <div class="movie-thumb">
+                        <img src="https://i.ytimg.com/vi/5Peo-ivmupE/mqdefault.jpg" alt="Ocean Life">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Ocean Mysteries</h3>
+                        <p>Discover the hidden wonders of the deep blue sea and its inhabitants.</p>
+                    </div>
+                </div>
+
+                <!-- Movie 4 -->
+                <div class="movie-card" data-video="m4-5SxWW5Wo" data-title="Wildlife Adventure" data-description="Join us on an exciting wildlife adventure across the savannas of Africa, the rainforests of South America, and the tundras of the Arctic. Witness amazing animal behaviors and conservation efforts.">
+                    <div class="movie-thumb">
+                        <img src="https://i.ytimg.com/vi/m4-5SxWW5Wo/mqdefault.jpg" alt="Wildlife">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Wildlife Adventure</h3>
+                        <p>Experience the thrill of encountering wild animals in their natural habitats.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Series Section -->
+        <section class="movies-section">
+            <div class="section-header">
+                <h2>Popular Series</h2>
+            </div>
+            <div class="movies-grid">
+                <!-- Series 1 -->
+                <div class="movie-card" data-video="HdxImKlepC0" data-title="Mountain Giants" data-description="Follow researchers as they study the geology and ecology of the world's greatest mountain ranges. Learn how these majestic landscapes formed and how they continue to change our planet.">
+                    <div class="movie-thumb">
+                        <img src="https://i.ytimg.com/vi/HdxImKlepC0/mqdefault.jpg" alt="Mountains">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Mountain Giants</h3>
+                        <p>Explore the world's most impressive mountain ranges and their ecosystems.</p>
+                    </div>
+                </div>
+
+                <!-- Series 2 -->
+                <div class="movie-card" data-video="Pk3tQwKxLp4" data-title="Desert Survival" data-description="Discover how life thrives in the harshest desert environments. From clever adaptations to incredible survival strategies, this series shows how plants, animals, and humans overcome extreme conditions.">
+                    <div class="movie-thumb">
+                        <img src="https://i.ytimg.com/vi/Pk3tQwKxLp4/mqdefault.jpg" alt="Desert">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Desert Survival</h3>
+                        <p>Witness the incredible ways life survives in the world's most arid places.</p>
+                    </div>
+                </div>
+
+                <!-- Series 3 -->
+                <div class="movie-card" data-video="E4K0ZMsF4tM" data-title="Ancient Civilizations" data-description="Journey back in time to explore the rise and fall of history's greatest empires. Learn about their innovations, cultures, and the legacies they left behind that still influence our world today.">
+                    <div class="movie-thumb">
+                        <img src="https://i.ytimg.com/vi/E4K0ZMsF4tM/mqdefault.jpg" alt="Ancient Civilizations">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Ancient Civilizations</h3>
+                        <p>Uncover the secrets of lost empires and their impact on modern society.</p>
+                    </div>
+                </div>
+
+                <!-- Series 4 -->
+                <div class="movie-card" data-video="xms7M5s6r9o" data-title="Future Technology" data-description="Get a glimpse of the technologies that will shape our future. From AI and robotics to space travel and renewable energy, this series explores the innovations that will transform our world.">
+                    <div class="movie-thumb">
+                        <img src="https://i.ytimg.com/vi/xms7M5s6r9o/mqdefault.jpg" alt="Future Tech">
+                    </div>
+                    <div class="movie-info">
+                        <h3>Future Technology</h3>
+                        <p>Discover the cutting-edge innovations that will define tomorrow's world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">DUNIA TV</div>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">Movies</a>
+                    <a href="#">Series</a>
+                    <a href="#">New Releases</a>
+                    <a href="#">Categories</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 DUNIA TV. All rights reserved. Admin content uploaded via GitHub.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to change the featured video
+        function changeFeaturedVideo(videoId, title, description) {
+            // Update the iframe source
+            document.getElementById('featuredPlayer').src = `https://www.youtube.com/embed/${videoId}`;
+            
+            // Update the video info
+            const videoInfo = document.querySelector('.video-info');
+            videoInfo.querySelector('h3').textContent = title;
+            videoInfo.querySelector('p').textContent = description;
+            
+            // Scroll to the video
+            document.querySelector('.featured-video').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Add click events to all movie cards
+        document.querySelectorAll('.movie-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const videoId = this.getAttribute('data-video');
+                const title = this.getAttribute('data-title');
+                const description = this.getAttribute('data-description');
+                
+                changeFeaturedVideo(videoId, title, description);
+            });
+        });
+        
+        // Simulate admin functionality (in a real scenario, this would be server-side)
+        console.log("Admin uploads are managed via GitHub repository. Users can watch without logging in.");
+    </script>
+</body>
+</html>
