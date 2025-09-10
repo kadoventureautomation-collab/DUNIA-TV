@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KADO ENTERTAINMENTS - YouTube Video Explorer</title>
-    <meta name="description" content="Explore YouTube videos securely through KADO ENTERTAINMENTS without exposing API keys">
+    <title>KADO ENTERTAINMENT - Top Tanzanian Videos & Music</title>
+    <meta name="description" content="Stream the latest Tanzanian music videos, comedy shows, and entertainment content on KADO ENTERTAINMENT. Optimized for mobile and desktop with multi-language support.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -28,7 +28,6 @@
             background: linear-gradient(to right, var(--primary-bg), var(--secondary-bg));
             color: var(--text-primary);
             line-height: 1.6;
-            padding-bottom: 50px;
         }
         
         .container {
@@ -73,165 +72,236 @@
             -webkit-text-fill-color: transparent;
         }
         
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 40px;
-            border-radius: 0 0 20px 20px;
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
         }
         
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: var(--text-secondary);
-        }
-        
-        /* Search Section */
-        .search-section {
-            background: var(--secondary-bg);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        
-        .search-section h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: var(--accent-color);
-        }
-        
-        .search-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .search-option {
-            background: #2a2a4a;
-            border: none;
-            color: var(--text-secondary);
-            padding: 12px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-weight: 500;
-        }
-        
-        .search-option:hover, .search-option.active {
-            background: var(--secondary-color);
-            color: white;
-        }
-        
-        .search-inputs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .search-input {
+        .search-box {
+            width: 100%;
             padding: 12px 20px;
             border-radius: 50px;
             border: none;
             background: #2a2a4a;
             color: white;
+            padding-left: 45px;
             font-size: 1rem;
-            min-width: 300px;
+            transition: all 0.3s;
         }
         
-        .search-btn {
+        .search-box:focus {
+            outline: none;
+            background: #3a3a6a;
+            box-shadow: 0 0 0 2px var(--secondary-color);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .user-actions button {
             background: var(--secondary-color);
             border: none;
             color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
+            padding: 10px 15px;
+            border-radius: 20px;
             cursor: pointer;
             transition: background 0.3s;
             font-weight: 500;
         }
         
-        .search-btn:hover {
+        .user-actions button:hover {
             background: var(--accent-color);
         }
         
-        /* Filters */
-        .filters {
-            background: var(--secondary-bg);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        
-        .filters h3 {
-            margin-bottom: 15px;
-            color: var(--accent-color);
-        }
-        
-        .filter-options {
+        .language-selector {
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 10px;
+            margin-left: 15px;
         }
         
-        .filter-btn {
+        .language-selector select {
             background: #2a2a4a;
+            color: white;
             border: none;
-            color: var(--text-secondary);
             padding: 8px 15px;
             border-radius: 20px;
             cursor: pointer;
-            transition: background 0.3s;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #e6e6ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+            background: rgba(255, 77, 148, 0.1);
+        }
+        
+        /* Hero Video Section */
+        .featured-videos {
+            margin: 30px 0;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        
+        .main-video {
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .video-info p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .video-meta {
+            display: flex;
+            gap: 15px;
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
         
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--secondary-color);
-            color: white;
+        .side-videos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         
-        /* Results Section */
-        .results-section {
-            margin-bottom: 40px;
+        .side-video-item {
+            display: flex;
+            gap: 15px;
+            background: var(--secondary-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
         
-        .results-header {
+        .side-video-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .side-thumb {
+            width: 120px;
+            height: 80px;
+            flex-shrink: 0;
+        }
+        
+        .side-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .side-info {
+            padding: 10px 10px 10px 0;
+        }
+        
+        .side-info h3 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+        
+        .side-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        /* Trending Sections */
+        .trending-section {
+            margin: 40px 0;
+        }
+        
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
         }
         
-        .results-header h2 {
+        .section-header h2 {
             font-size: 1.8rem;
             color: var(--accent-color);
         }
         
-        .results-count {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .view-all {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
         
-        .videos-grid {
+        .view-all:hover {
+            color: var(--accent-color);
+        }
+        
+        .trending-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
         
-        .video-card {
+        .trending-card {
             background: var(--secondary-bg);
             border-radius: 12px;
             overflow: hidden;
@@ -239,18 +309,18 @@
             cursor: pointer;
         }
         
-        .video-card:hover {
+        .trending-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
         
-        .video-thumb {
+        .trending-thumb {
             position: relative;
             padding-bottom: 56.25%;
             overflow: hidden;
         }
         
-        .video-thumb img {
+        .trending-thumb img {
             position: absolute;
             top: 0;
             left: 0;
@@ -260,7 +330,7 @@
             transition: transform 0.5s;
         }
         
-        .video-card:hover .video-thumb img {
+        .trending-card:hover .trending-thumb img {
             transform: scale(1.1);
         }
         
@@ -278,65 +348,36 @@
             transition: opacity 0.3s;
         }
         
+        .trending-thumb:hover .play-overlay {
+            opacity: 1;
+        }
+        
         .play-overlay i {
             font-size: 3rem;
             color: white;
         }
         
-        .video-thumb:hover .play-overlay {
-            opacity: 1;
+        .trending-info {
+            padding: 15px;
         }
         
-        .video-info {
-            padding: 20px;
-        }
-        
-        .video-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+        .trending-info h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
             color: var(--accent-color);
         }
         
-        .video-info p {
+        .trending-info p {
             color: var(--text-muted);
-            margin-bottom: 15px;
             font-size: 0.9rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            margin-bottom: 10px;
         }
         
-        .video-meta {
+        .trending-meta {
             display: flex;
             justify-content: space-between;
             color: var(--text-muted);
             font-size: 0.8rem;
-        }
-        
-        .channel-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .channel-thumb {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        
-        .channel-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .channel-name {
-            font-size: 0.8rem;
-            color: var(--text-muted);
         }
         
         /* Pagination */
@@ -361,78 +402,6 @@
         .pagination button:hover, .pagination button.active {
             background: var(--secondary-color);
             color: white;
-        }
-        
-        .load-more {
-            display: block;
-            margin: 0 auto;
-            background: var(--secondary-color);
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-weight: 500;
-        }
-        
-        .load-more:hover {
-            background: var(--accent-color);
-        }
-        
-        /* Loading Animation */
-        .loader {
-            display: flex;
-            justify-content: center;
-            padding: 30px;
-        }
-        
-        .loader .dot {
-            width: 10px;
-            height: 10px;
-            background: var(--secondary-color);
-            border-radius: 50%;
-            margin: 0 5px;
-            animation: bounce 1.5s infinite ease-in-out;
-        }
-        
-        .loader .dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .loader .dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        /* Message Styles */
-        .message {
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .error {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            color: #ff6b6b;
-        }
-        
-        .info {
-            background: rgba(0, 255, 255, 0.1);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            color: #6bffb8;
-        }
-        
-        .success {
-            background: rgba(0, 255, 0, 0.1);
-            border: 1px solid rgba(0, 255, 0, 0.3);
-            color: #6bff6b;
         }
         
         /* Footer */
@@ -508,18 +477,12 @@
         
         /* Responsive Design */
         @media (max-width: 900px) {
-            .videos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .video-grid {
+                grid-template-columns: 1fr;
             }
             
-            .search-input {
-                min-width: 100%;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .videos-grid {
-                grid-template-columns: 1fr;
+            .trending-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             }
             
             .header-content {
@@ -527,13 +490,117 @@
                 gap: 15px;
             }
             
-            .search-inputs {
+            .search-container {
+                order: 3;
+                margin: 15px 0;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .trending-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .user-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .side-video-item {
                 flex-direction: column;
             }
             
-            .search-btn {
+            .side-thumb {
                 width: 100%;
+                height: 120px;
             }
+        }
+        
+        /* Video optimization styles */
+        .video-optimized {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Language modal */
+        .language-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .language-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            width: 90%;
+            max-width: 500px;
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            padding: 30px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .language-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .language-option {
+            padding: 15px;
+            background: #2a2a4a;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .language-option:hover {
+            background: var(--secondary-color);
         }
     </style>
 </head>
@@ -544,476 +611,512 @@
             <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-play-circle"></i>
-                    <h1>KADO ENTERTAINMENTS</h1>
+                    <h1>KADO ENTERTAINMENT</h1>
+                </div>
+                
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-box" id="search-input" placeholder="Search for videos, artists...">
+                </div>
+                
+                <div class="user-actions">
+                    <button id="login-btn">Sign In</button>
+                    <button id="upload-btn">Upload</button>
+                    <div class="language-selector">
+                        <span><i class="fas fa-globe"></i></span>
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="sw">Swahili</option>
+                            <option value="fr">French</option>
+                            <option value="pt">Portuguese</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Comedy</a></li>
+                    <li><a href="#">Drama</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">Trending</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>YouTube Video Explorer</h2>
-            <p>Discover and explore YouTube videos securely without exposing API keys</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
+    <!-- Featured Videos Section -->
     <div class="container">
-        <!-- Search Section -->
-        <section class="search-section">
-            <h2>Explore YouTube Content</h2>
-            <div class="search-options">
-                <button class="search-option active" data-type="search">Search Videos</button>
-                <button class="search-option" data-type="channel">Channel Videos</button>
-                <button class="search-option" data-type="trending">Trending Videos</button>
-            </div>
-            <div class="search-inputs">
-                <input type="text" class="search-input" id="search-query" placeholder="Enter search terms...">
-                <input type="text" class="search-input" id="channel-id" placeholder="Enter Channel ID..." style="display: none;">
-                <button class="search-btn" id="search-btn">Search</button>
-            </div>
-            <div id="search-message"></div>
-        </section>
-
-        <!-- Filters Section -->
-        <section class="filters">
-            <h3>Filter by Category</h3>
-            <div class="filter-options">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="10">Music</button>
-                <button class="filter-btn" data-category="20">Gaming</button>
-                <button class="filter-btn" data-category="25">News</button>
-                <button class="filter-btn" data-category="17">Sports</button>
-                <button class="filter-btn" data-category="24">Entertainment</button>
-            </div>
-        </section>
-
-        <!-- Results Section -->
-        <section class="results-section">
-            <div class="results-header">
-                <h2 id="results-title">YouTube Videos</h2>
-                <div class="results-count" id="results-count">0 results</div>
-            </div>
-            
-            <div class="videos-grid" id="videos-container">
-                <!-- Videos will be loaded here dynamically -->
-                <div class="loader" id="main-loader">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
+        <section class="featured-videos">
+            <div class="video-grid">
+                <div class="main-video">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/DLMngTEHnuc?si=tbQrX5bk9ez-iFgB" title="Featured Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h2>Top Trending Video</h2>
+                        <p>Enjoy this exclusive content from Tanzania's top artists. The latest hit that's taking the nation by storm with its unique blend of rhythm and storytelling.</p>
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye"></i> 2.5M views</span>
+                            <span><i class="fas fa-calendar"></i> 2 days ago</span>
+                            <span><i class="fas fa-clock"></i> 15:24</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="side-videos">
+                    <div class="side-video-item">
+                        <div class="side-thumb">
+                            <img src="https://i.ytimg.com/vi/27YXZl66AQM/mqdefault.jpg" alt="Side Video 1">
+                        </div>
+                        <div class="side-info">
+                            <h3>Latest Comedy Show</h3>
+                            <p>1.2M views • 3 days ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="side-video-item">
+                        <div class="side-thumb">
+                            <img src="https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg" alt="Side Video 2">
+                        </div>
+                        <div class="side-info">
+                            <h3>Music Collaboration</h3>
+                            <p>3.4M views • 1 week ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="side-video-item">
+                        <div class="side-thumb">
+                            <img src="https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg" alt="Side Video 3">
+                        </div>
+                        <div class="side-info">
+                            <h3>Dance Challenge</h3>
+                            <p>1.8M views • 4 days ago</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="pagination" id="pagination">
-                <!-- Pagination will be generated here -->
-            </div>
-            
-            <button class="load-more" id="load-more" style="display: none;">Load More</button>
         </section>
+    </div>
+
+    <!-- Trending Music Section -->
+    <div class="container">
+        <section class="trending-section">
+            <div class="section-header">
+                <h2>Trending Music Videos</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="trending-grid">
+                <!-- Video 1 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_1/mqdefault.jpg" alt="Music Video 1">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Wewe na Mimi</h3>
+                        <p>Frida Amani ft. Jay Melody</p>
+                        <div class="trending-meta">
+                            <span>5:24</span>
+                            <span>1.2M views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_2/mqdefault.jpg" alt="Music Video 2">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Ngishutheni</h3>
+                        <p>Goon Flavour, Master KG & Eemoh</p>
+                        <div class="trending-meta">
+                            <span>4:15</span>
+                            <span>950K views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_3/mqdefault.jpg" alt="Music Video 3">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Moto</h3>
+                        <p>Diamond Platnumz</p>
+                        <div class="trending-meta">
+                            <span>4:45</span>
+                            <span>3.5M views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 4 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_4/mqdefault.jpg" alt="Music Video 4">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Sawa</h3>
+                        <p>Mbosso ft. Nandy</p>
+                        <div class="trending-meta">
+                            <span>3:55</span>
+                            <span>2.1M views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Trending Comedy Section -->
+    <div class="container">
+        <section class="trending-section">
+            <div class="section-header">
+                <h2>Trending Comedy</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="trending-grid">
+                <!-- Comedy Video 1 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/COMEDY_ID_1/mqdefault.jpg" alt="Comedy Video 1">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Mzee Majoka</h3>
+                        <p>Mzee Majoka Comedy</p>
+                        <div class="trending-meta">
+                            <span>12:45</span>
+                            <span>850K views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comedy Video 2 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/COMEDY_ID_2/mqdefault.jpg" alt="Comedy Video 2">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Mwasiti Mwamba</h3>
+                        <p>Mwasiti Mwamba Show</p>
+                        <div class="trending-meta">
+                            <span>15:30</span>
+                            <span>720K views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comedy Video 3 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/COMEDY_ID_3/mqdefault.jpg" alt="Comedy Video 3">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Imitations</h3>
+                        <p>Idris Sultan</p>
+                        <div class="trending-meta">
+                            <span>8:20</span>
+                            <span>1.1M views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comedy Video 4 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/COMEDY_ID_4/mqdefault.jpg" alt="Comedy Video 4">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Village Life</h3>
+                        <p>Comedy Group Tanzania</p>
+                        <div class="trending-meta">
+                            <span>10:15</span>
+                            <span>650K views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Pagination -->
+    <div class="container">
+        <div class="pagination">
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+        </div>
+    </div>
+
+    <!-- Language Modal -->
+    <div class="language-modal">
+        <div class="modal-content">
+            <div class="modal-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2>Select Your Preferred Language</h2>
+            <p>Choose your language for a better experience</p>
+            <div class="language-options">
+                <div class="language-option" data-lang="en">English</div>
+                <div class="language-option" data-lang="sw">Swahili</div>
+                <div class="language-option" data-lang="fr">French</div>
+                <div class="language-option" data-lang="pt">Portuguese</div>
+                <div class="language-option" data-lang="ar">Arabic</div>
+                <div class="language-option" data-lang="es">Spanish</div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">KADO ENTERTAINMENTS</div>
+                <div class="footer-logo">KADO ENTERTAINMENT</div>
                 <div class="footer-links">
                     <a href="#">Home</a>
                     <a href="#">About</a>
+                    <a href="#">Trending</a>
+                    <a href="#">Artists</a>
+                    <a href="#">New Releases</a>
+                    <a href="#">Contact</a>
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
-                    <a href="#">Contact</a>
                 </div>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
                 <div class="copyright">
-                    &copy; 2025 KADO ENTERTAINMENTS. This page uses a secure serverless function to protect API keys while providing access to YouTube content.
-                    <br>Note: This is a demonstration page. In a production environment, you would need to implement your own serverless function.
+                    &copy; 2023 KADO ENTERTAINMENT. All rights reserved. Stream the latest Tanzanian music, comedy, and entertainment content. Optimized for mobile and desktop viewing with multi-language support.
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // DOM Elements
-        const searchOptions = document.querySelectorAll('.search-option');
-        const searchQuery = document.getElementById('search-query');
-        const channelIdInput = document.getElementById('channel-id');
-        const searchBtn = document.getElementById('search-btn');
-        const searchMessage = document.getElementById('search-message');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const videosContainer = document.getElementById('videos-container');
-        const paginationContainer = document.getElementById('pagination');
-        const loadMoreBtn = document.getElementById('load-more');
-        const resultsTitle = document.getElementById('results-title');
-        const resultsCount = document.getElementById('results-count');
-        const mainLoader = document.getElementById('main-loader');
-        
-        // State
-        let currentSearchType = 'search';
-        let currentCategory = 'all';
-        let nextPageToken = '';
-        let currentQuery = '';
-        let currentChannelId = '';
+        // Sample data for the content
+        const videos = {
+            music: [
+                {
+                    id: 1,
+                    title: "Wewe na mimi",
+                    artist: "Frida Amani ft. Jay Melody",
+                    videoId: "ge_UgErt4yo",
+                    thumbnail: "https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg",
+                    duration: "5:24",
+                    views: "1.2M views"
+                },
+                {
+                    id: 2,
+                    title: "Ngishutheni",
+                    artist: "Goon Flavour, Master KG & Eemoh",
+                    videoId: "-c63EZ4oyRg",
+                    thumbnail: "https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg",
+                    duration: "4:15",
+                    views: "950K views"
+                },
+                {
+                    id: 3,
+                    title: "Moto",
+                    artist: "Diamond Platnumz",
+                    videoId: "VIDEO_ID_3",
+                    thumbnail: "https://i.ytimg.com/vi/VIDEO_ID_3/mqdefault.jpg",
+                    duration: "4:45",
+                    views: "3.5M views"
+                },
+                {
+                    id: 4,
+                    title: "Sawa",
+                    artist: "Mbosso ft. Nandy",
+                    videoId: "VIDEO_ID_4",
+                    thumbnail: "https://i.ytimg.com/vi/VIDEO_ID_4/mqdefault.jpg",
+                    duration: "3:55",
+                    views: "2.1M views"
+                }
+            ],
+            comedy: [
+                {
+                    id: 1,
+                    title: "Mzee Majoka",
+                    artist: "Mzee Majoka Comedy",
+                    videoId: "COMEDY_ID_1",
+                    thumbnail: "https://i.ytimg.com/vi/COMEDY_ID_1/mqdefault.jpg",
+                    duration: "12:45",
+                    views: "850K views"
+                },
+                {
+                    id: 2,
+                    title: "Mwasiti Mwamba",
+                    artist: "Mwasiti Mwamba Show",
+                    videoId: "COMEDY_ID_2",
+                    thumbnail: "https://i.ytimg.com/vi/COMEDY_ID_2/mqdefault.jpg",
+                    duration: "15:30",
+                    views: "720K views"
+                },
+                {
+                    id: 3,
+                    title: "Imitations",
+                    artist: "Idris Sultan",
+                    videoId: "COMEDY_ID_3",
+                    thumbnail: "https://i.ytimg.com/vi/COMEDY_ID_3/mqdefault.jpg",
+                    duration: "8:20",
+                    views: "1.1M views"
+                },
+                {
+                    id: 4,
+                    title: "Village Life",
+                    artist: "Comedy Group Tanzania",
+                    videoId: "COMEDY_ID_4",
+                    thumbnail: "https://i.ytimg.com/vi/COMEDY_ID_4/mqdefault.jpg",
+                    duration: "10:15",
+                    views: "650K views"
+                }
+            ]
+        };
+
+        // DOM elements
+        const searchInput = document.getElementById('search-input');
+        const languageSelect = document.getElementById('language-select');
+        const languageModal = document.querySelector('.language-modal');
+        const modalClose = document.querySelector('.modal-close');
         
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
+            // Set up event listeners
             setupEventListeners();
-            loadTrendingVideos();
+            
+            // Load initial content
+            loadContent();
         });
-        
+
         // Set up event listeners
         function setupEventListeners() {
-            // Search options
-            searchOptions.forEach(option => {
+            // Search functionality
+            searchInput.addEventListener('input', debounce(function() {
+                filterContent();
+            }, 300));
+            
+            // Language selection
+            languageSelect.addEventListener('change', function() {
+                changeLanguage(this.value);
+            });
+            
+            // Close modal
+            modalClose.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside
+            languageModal.addEventListener('click', function(e) {
+                if (e.target === languageModal) {
+                    closeModal();
+                }
+            });
+            
+            // Language options
+            document.querySelectorAll('.language-option').forEach(option => {
                 option.addEventListener('click', function() {
-                    searchOptions.forEach(opt => opt.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    currentSearchType = this.getAttribute('data-type');
-                    
-                    if (currentSearchType === 'channel') {
-                        searchQuery.style.display = 'none';
-                        channelIdInput.style.display = 'block';
-                        searchQuery.placeholder = 'Enter Channel ID...';
-                    } else {
-                        searchQuery.style.display = 'block';
-                        channelIdInput.style.display = 'none';
-                        searchQuery.placeholder = currentSearchType === 'search' 
-                            ? 'Enter search terms...' 
-                            : 'Enter region code (optional)...';
-                    }
+                    changeLanguage(this.getAttribute('data-lang'));
+                    closeModal();
                 });
             });
             
-            // Search button
-            searchBtn.addEventListener('click', function() {
-                performSearch();
+            // Simulate user actions
+            document.getElementById('login-btn').addEventListener('click', function() {
+                alert('Login functionality would be implemented here.');
             });
             
-            // Filter buttons
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    currentCategory = this.getAttribute('data-category');
-                    
-                    // Re-run the current search with the new category filter
-                    if (currentSearchType === 'trending') {
-                        loadTrendingVideos();
-                    } else if (currentSearchType === 'channel' && currentChannelId) {
-                        searchChannelVideos(currentChannelId);
-                    } else if (currentSearchType === 'search' && currentQuery) {
-                        searchVideos(currentQuery);
-                    }
-                });
-            });
-            
-            // Load more button
-            loadMoreBtn.addEventListener('click', function() {
-                loadMoreVideos();
-            });
-            
-            // Allow pressing Enter to search
-            searchQuery.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-            
-            channelIdInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
+            document.getElementById('upload-btn').addEventListener('click', function() {
+                alert('Upload functionality would be implemented here.');
             });
         }
-        
-        // Determine what type of search to perform
-        function performSearch() {
-            if (currentSearchType === 'channel') {
-                const channelId = channelIdInput.value.trim();
-                if (channelId) {
-                    currentChannelId = channelId;
-                    searchChannelVideos(channelId);
-                } else {
-                    showMessage('Please enter a Channel ID', 'error');
-                }
-            } else if (currentSearchType === 'search') {
-                const query = searchQuery.value.trim();
-                if (query) {
-                    currentQuery = query;
-                    searchVideos(query);
-                } else {
-                    showMessage('Please enter search terms', 'error');
-                }
-            } else if (currentSearchType === 'trending') {
-                loadTrendingVideos();
-            }
+
+        // Load content based on current category
+        function loadContent() {
+            // In a real implementation, this would fetch data from an API
+            console.log('Content loaded successfully');
         }
-        
-        // Search for videos
-        async function searchVideos(query) {
-            try {
-                showLoader();
-                resultsTitle.textContent = `Search Results for "${query}"`;
-                
-                // In a real implementation, this would call your serverless function
-                // For demonstration, we'll use a mock response
-                const mockData = {
-                    items: [
-                        {
-                            id: { videoId: 'dQw4w9WgXcQ' },
-                            snippet: {
-                                title: 'Example Video 1',
-                                description: 'This is an example video description',
-                                thumbnails: {
-                                    medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' }
-                                },
-                                channelTitle: 'Example Channel',
-                                publishedAt: '2023-09-10T00:00:00Z'
-                            }
-                        },
-                        {
-                            id: { videoId: 'dQw4w9WgXcQ' },
-                            snippet: {
-                                title: 'Example Video 2',
-                                description: 'This is another example video description',
-                                thumbnails: {
-                                    medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' }
-                                },
-                                channelTitle: 'Example Channel',
-                                publishedAt: '2023-09-09T00:00:00Z'
-                            }
-                        }
-                    ],
-                    pageInfo: { totalResults: 2 }
-                };
-                
-                // Simulate API delay
-                setTimeout(() => {
-                    displayVideos(mockData);
-                    showMessage('Note: This is a demonstration with sample data. In production, this would call your serverless function.', 'info');
-                }, 1000);
-                
-            } catch (error) {
-                console.error('Error searching videos:', error);
-                showMessage('Failed to search videos. Please try again later.', 'error');
-                videosContainer.innerHTML = '';
-            }
+
+        // Filter content based on search input
+        function filterContent() {
+            const searchTerm = searchInput.value.toLowerCase();
+            console.log('Filtering content for:', searchTerm);
+            // In a real implementation, this would filter the displayed content
         }
-        
-        // Search channel videos
-        async function searchChannelVideos(channelId) {
-            try {
-                showLoader();
-                resultsTitle.textContent = `Channel Videos`;
-                
-                // In a real implementation, this would call your serverless function
-                // For demonstration, we'll use a mock response
-                const mockData = {
-                    items: [
-                        {
-                            id: { videoId: 'dQw4w9WgXcQ' },
-                            snippet: {
-                                title: 'Channel Video 1',
-                                description: 'This is a channel video description',
-                                thumbnails: {
-                                    medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' }
-                                },
-                                channelTitle: 'Example Channel',
-                                publishedAt: '2023-09-08T00:00:00Z'
-                            }
-                        },
-                        {
-                            id: { videoId: 'dQw4w9WgXcQ' },
-                            snippet: {
-                                title: 'Channel Video 2',
-                                description: 'This is another channel video description',
-                                thumbnails: {
-                                    medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' }
-                                },
-                                channelTitle: 'Example Channel',
-                                publishedAt: '2023-09-07T00:00:00Z'
-                            }
-                        }
-                    ],
-                    pageInfo: { totalResults: 2 }
-                };
-                
-                // Simulate API delay
-                setTimeout(() => {
-                    displayVideos(mockData);
-                    showMessage('Note: This is a demonstration with sample data. In production, this would call your serverless function.', 'info');
-                }, 1000);
-                
-            } catch (error) {
-                console.error('Error loading channel videos:', error);
-                showMessage('Failed to load channel videos. Please check the Channel ID and try again.', 'error');
-                videosContainer.innerHTML = '';
-            }
+
+        // Change language
+        function changeLanguage(lang) {
+            console.log('Changing language to:', lang);
+            // In a real implementation, this would change the interface language
+            // and possibly load content in the selected language
+            alert(`Language changed to ${lang}. In a real implementation, the interface would update accordingly.`);
         }
-        
-        // Load trending videos
-        async function loadTrendingVideos() {
-            try {
-                showLoader();
-                resultsTitle.textContent = 'Trending Videos';
-                
-                // In a real implementation, this would call your serverless function
-                // For demonstration, we'll use a mock response
-                const mockData = {
-                    items: [
-                        {
-                            id: 'dQw4w9WgXcQ',
-                            snippet: {
-                                title: 'Trending Video 1',
-                                description: 'This is a trending video description',
-                                thumbnails: {
-                                    medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' }
-                                },
-                                channelTitle: 'Trending Channel',
-                                publishedAt: '2023-09-10T00:00:00Z'
-                            },
-                            statistics: {
-                                viewCount: '1000000'
-                            }
-                        },
-                        {
-                            id: 'dQw4w9WgXcQ',
-                            snippet: {
-                                title: 'Trending Video 2',
-                                description: 'This is another trending video description',
-                                thumbnails: {
-                                    medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' }
-                                },
-                                channelTitle: 'Trending Channel',
-                                publishedAt: '2023-09-09T00:00:00Z'
-                            },
-                            statistics: {
-                                viewCount: '500000'
-                            }
-                        }
-                    ],
-                    pageInfo: { totalResults: 2 }
-                };
-                
-                // Simulate API delay
-                setTimeout(() => {
-                    displayVideos(mockData);
-                    showMessage('Note: This is a demonstration with sample data. In production, this would call your serverless function.', 'info');
-                }, 1000);
-                
-            } catch (error) {
-                console.error('Error loading trending videos:', error);
-                showMessage('Failed to load trending videos. Please try again later.', 'error');
-                videosContainer.innerHTML = '';
-            }
+
+        // Open language modal
+        function openLanguageModal() {
+            languageModal.classList.add('active');
         }
-        
-        // Load more videos (pagination)
-        function loadMoreVideos() {
-            // This would use the nextPageToken to fetch more results
-            // For demonstration, we'll just show a message
-            showMessage('Load more functionality would be implemented with pagination in a production environment.', 'info');
+
+        // Close modal
+        function closeModal() {
+            languageModal.classList.remove('active');
         }
-        
-        // Display videos in the container
-        function displayVideos(data) {
-            // Update results count
-            const totalResults = data.pageInfo.totalResults || 0;
-            resultsCount.textContent = `${totalResults} results`;
-            
-            // Clear container
-            videosContainer.innerHTML = '';
-            
-            // Check if there are any videos
-            if (!data.items || data.items.length === 0) {
-                videosContainer.innerHTML = '<p class="no-results">No videos found.</p>';
-                return;
-            }
-            
-            // Display each video
-            data.items.forEach(video => {
-                const videoId = video.id.videoId || video.id;
-                const thumbnailUrl = video.snippet.thumbnails.medium ? video.snippet.thumbnails.medium.url : 'https://via.placeholder.com/320x180';
-                const viewCount = video.statistics ? parseInt(video.statistics.viewCount).toLocaleString() + ' views' : 'N/A views';
-                const publishedDate = new Date(video.snippet.publishedAt).toLocaleDateString();
-                
-                const videoCard = document.createElement('div');
-                videoCard.className = 'video-card';
-                videoCard.innerHTML = `
-                    <div class="video-thumb">
-                        <img src="${thumbnailUrl}" alt="${video.snippet.title}" loading="lazy">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <h3>${video.snippet.title}</h3>
-                        <p>${video.snippet.description}</p>
-                        <div class="video-meta">
-                            <span>${viewCount}</span>
-                            <span>${publishedDate}</span>
-                        </div>
-                        <div class="channel-info">
-                            <div class="channel-thumb">
-                                <img src="${thumbnailUrl}" alt="${video.snippet.channelTitle}">
-                            </div>
-                            <div class="channel-name">${video.snippet.channelTitle}</div>
-                        </div>
-                    </div>
-                `;
-                
-                videoCard.addEventListener('click', () => {
-                    window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
-                });
-                
-                videosContainer.appendChild(videoCard);
+
+        // Debounce function for search input
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this;
+                const args = arguments;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), wait);
+            };
+        }
+
+        // Video optimization - responsive handling
+        function optimizeVideos() {
+            // This function would handle video optimization techniques
+            // such as lazy loading, responsive sizing, etc.
+            const videos = document.querySelectorAll('video, iframe');
+            videos.forEach(video => {
+                video.classList.add('video-optimized');
             });
-            
-            // Hide loader
-            mainLoader.style.display = 'none';
-            
-            // Show/Hide load more button based on whether there are more results
-            loadMoreBtn.style.display = nextPageToken ? 'block' : 'none';
         }
-        
-        // Show loader
-        function showLoader() {
-            mainLoader.style.display = 'flex';
-            loadMoreBtn.style.display = 'none';
-        }
-        
-        // Show message
-        function showMessage(message, type) {
-            searchMessage.innerHTML = `
-                <div class="message ${type}">
-                    ${message}
-                </div>
-            `;
-            
-            // Auto hide success messages after 5 seconds
-            if (type === 'success') {
-                setTimeout(() => {
-                    searchMessage.innerHTML = '';
-                }, 5000);
-            }
-        }
-        
-        // Serverless function example (conceptual)
-        // This would be implemented in a separate serverless function
-        async function callServerlessFunction(endpoint, params) {
-            // In a real implementation, this would call your serverless function
-            // which would then make the YouTube API request with your protected API key
-            const response = await fetch(`/.netlify/functions/${endpoint}?${new URLSearchParams(params)}`);
-            return await response.json();
-        }
+
+        // Initialize video optimization
+        optimizeVideos();
     </script>
 </body>
 </html>
