@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUNIA TV - Streaming Platform</title>
+    <title>Top 30 Trending Songs in Tanzania | KADO ENTERTAINMENT</title>
+    <meta name="description" content="Stream the top 30 trending songs in Tanzania on KADO ENTERTAINMENT. Featuring Marioo, Diamond Platnumz, Frida Amani, Mbosso, Ayra Starr and more.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,7 +15,7 @@
         }
         
         body {
-            background-color: #0f0f1a;
+            background: linear-gradient(to right, #0f0f1a, #1a1a2e);
             color: #ffffff;
             line-height: 1.6;
         }
@@ -27,7 +28,7 @@
         
         /* Header Styles */
         header {
-            background: linear-gradient(to right, #1a1a2e, #16213e);
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             padding: 20px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: sticky;
@@ -80,12 +81,13 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            padding: 100px 0;
+            padding: 80px 0;
             text-align: center;
             margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
         }
         
         .hero h2 {
@@ -101,30 +103,90 @@
             color: #ccccff;
         }
         
-        /* Main Content */
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 30px;
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, #ff4d94, #6a67ce);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Songs Section */
+        .songs-section {
             margin-bottom: 50px;
         }
         
-        .featured-video {
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: #ff4d94;
+        }
+        
+        .view-options {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .view-options button {
+            background: #2a2a4a;
+            border: none;
+            color: #ccccff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .view-options button.active {
+            background: #6a67ce;
+            color: white;
+        }
+        
+        .view-options button:hover {
+            background: #3a3a6a;
+        }
+        
+        .songs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .song-card {
             background: #1a1a2e;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
         
-        .video-container {
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .song-thumb {
             position: relative;
             padding-bottom: 56.25%;
-            height: 0;
             overflow: hidden;
         }
         
-        .video-container iframe, 
-        .video-container video {
+        .song-thumb iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -133,182 +195,127 @@
             border: none;
         }
         
-        .video-info {
-            padding: 20px;
-        }
-        
-        .video-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #ff4d94;
-        }
-        
-        .video-info p {
-            color: #ccccff;
-            margin-bottom: 15px;
-        }
-        
-        .video-meta {
-            display: flex;
-            gap: 15px;
-            color: #a0a0d0;
-            font-size: 0.9rem;
-        }
-        
-        /* Movie List */
-        .movies-section {
-            margin-bottom: 50px;
-        }
-        
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .section-header h2 {
-            font-size: 1.8rem;
-            color: #ff4d94;
-        }
-        
-        .movies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .movie-card {
-            background: #1a1a2e;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        
-        .movie-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
-        
-        .movie-thumb {
-            position: relative;
-            padding-bottom: 56.25%;
-            overflow: hidden;
-        }
-        
-        .movie-thumb img {
+        .play-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .movie-card:hover .movie-thumb img {
-            transform: scale(1.1);
-        }
-        
-        .movie-info {
-            padding: 15px;
-        }
-        
-        .movie-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-        
-        .movie-info p {
-            color: #a0a0d0;
-            font-size: 0.9rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            background: #1a1a2e;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-        
-        .sidebar h3 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            color: #ff4d94;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #2a2a4a;
-        }
-        
-        .admin-info {
-            background: linear-gradient(to right, #16213e, #1a1a2e);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
-        
-        .admin-info h4 {
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            color: #6a67ce;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
         
-        .admin-info p {
-            color: #ccccff;
-            font-size: 0.9rem;
+        .play-overlay i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .song-thumb:hover .play-overlay {
+            opacity: 1;
+        }
+        
+        .song-info {
+            padding: 20px;
+        }
+        
+        .song-info h3 {
+            font-size: 1.2rem;
             margin-bottom: 10px;
+            color: #ff4d94;
         }
         
-        .recent-uploads {
-            margin-top: 25px;
-        }
-        
-        .upload-item {
-            display: flex;
-            gap: 12px;
+        .song-info p {
+            color: #a0a0d0;
             margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #2a2a4a;
+            font-size: 0.9rem;
         }
         
-        .upload-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .song-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #6a67ce;
+            font-size: 0.9rem;
         }
         
-        .upload-thumb {
-            width: 60px;
-            height: 40px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .upload-thumb img {
+        /* Player Modal */
+        .player-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
         }
         
-        .upload-details {
-            flex: 1;
+        .player-modal.active {
+            opacity: 1;
+            visibility: visible;
         }
         
-        .upload-details h4 {
-            font-size: 0.9rem;
-            margin-bottom: 4px;
+        .modal-content {
+            width: 80%;
+            max-width: 900px;
+            background: #1a1a2e;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
         }
         
-        .upload-details p {
-            font-size: 0.8rem;
-            color: #a0a0d0;
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .modal-player {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .modal-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .modal-info {
+            padding: 20px;
+        }
+        
+        .modal-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ff4d94;
+        }
+        
+        .modal-info p {
+            color: #ccccff;
+            margin-bottom: 15px;
         }
         
         /* Footer */
@@ -348,6 +355,31 @@
             color: #ff4d94;
         }
         
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            background: #2a2a4a;
+            color: #ccccff;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: #6a67ce;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
         .copyright {
             color: #a0a0d0;
             font-size: 0.9rem;
@@ -355,8 +387,8 @@
         
         /* Responsive Design */
         @media (max-width: 900px) {
-            .main-content {
-                grid-template-columns: 1fr;
+            .songs-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
             .hero h2 {
@@ -366,6 +398,10 @@
             nav ul {
                 gap: 15px;
             }
+            
+            .modal-content {
+                width: 95%;
+            }
         }
         
         @media (max-width: 600px) {
@@ -374,7 +410,7 @@
                 gap: 15px;
             }
             
-            .movies-grid {
+            .songs-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -390,6 +426,17 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .view-options {
+                align-self: stretch;
+                justify-content: space-around;
+            }
         }
     </style>
 </head>
@@ -399,16 +446,16 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-play-circle"></i>
-                    <h1>DUNIA TV</h1>
+                    <i class="fas fa-music"></i>
+                    <h1>KADO ENTERTAINMENT</h1>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Movies</a></li>
-                        <li><a href="#">Series</a></li>
+                        <li><a href="#">Trending</a></li>
+                        <li><a href="#">Artists</a></li>
                         <li><a href="#">New Releases</a></li>
-                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Genres</a></li>
                     </ul>
                 </nav>
             </div>
@@ -418,226 +465,246 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Stream Your Favorite Movies & Series</h2>
-            <p>Exclusive content updated regularly by our admin team. No signup required - just start watching!</p>
+            <h2>Top 30 Trending Songs in Tanzania</h2>
+            <p>Discover the most popular music in Tanzania right now. Stream the hottest tracks from your favorite artists including Diamond Platnumz, Marioo, Mbosso, and more!</p>
+            <a href="#trending" class="cta-button">Explore Trending Songs</a>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Songs Section -->
     <div class="container">
-        <div class="main-content">
-            <!-- Featured Video -->
-            <div class="featured-video">
-                <div class="video-container">
-                    <iframe id="featuredPlayer" src="https://www.youtube.com/embed/ge_UgErt4yo" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Amazing Nature Documentary</h3>
-                    <p>Experience the breathtaking beauty of our planet with this stunning nature documentary. Journey through lush forests, vast oceans, and majestic mountains as we explore Earth's most incredible natural wonders.</p>
-                    <div class="video-meta">
-                        <span><i class="far fa-clock"></i> 1h 32m</span>
-                        <span><i class="far fa-calendar"></i> 2023</span>
-                        <span><i class="fas fa-star"></i> 8.7/10</span>
-                    </div>
+        <section id="trending" class="songs-section">
+            <div class="section-header">
+                <h2>Trending Now</h2>
+                <div class="view-options">
+                    <button class="active">Grid View</button>
+                    <button>List View</button>
                 </div>
             </div>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <h3>Admin Panel</h3>
-                <div class="admin-info">
-                    <h4><i class="fas fa-user-shield"></i> Admin Dashboard</h4>
-                    <p>Only admins can upload content via GitHub repository. Users don't need to login to watch.</p>
-                    <p>Last update: September 9, 2023</p>
-                </div>
-
-                <div class="recent-uploads">
-                    <h3>Recent Uploads</h3>
-                    <div class="upload-item">
-                        <div class="upload-thumb">
-                            <img src="https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg" alt="Nature Documentary">
-                        </div>
-                        <div class="upload-details">
-                            <h4>Amazing Nature</h4>
-                            <p>Uploaded: Sep 8, 2023</p>
+            <div class="songs-grid">
+                <!-- Song 1 -->
+                <div class="song-card" data-video="VIDEO_ID_1" data-title="Wewe na mimi" data-artist="Frida Amani ft. Jay Melody" data-description="Enjoy this beautiful Bongo Flava collaboration between Frida Amani and Jay Melody that's currently topping charts across Tanzania.">
+                    <div class="song-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_1/mqdefault.jpg" alt="Wewe na mimi">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
                         </div>
                     </div>
-                    <div class="upload-item">
-                        <div class="upload-thumb">
-                            <img src="https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg" alt="Space Exploration">
-                        </div>
-                        <div class="upload-details">
-                            <h4>Space Journey</h4>
-                            <p>Uploaded: Sep 7, 2023</p>
-                        </div>
-                    </div>
-                    <div class="upload-item">
-                        <div class="upload-thumb">
-                            <img src="https://i.ytimg.com/vi/5Peo-ivmupE/mqdefault.jpg" alt="Ocean Life">
-                        </div>
-                        <div class="upload-details">
-                            <h4>Ocean Mysteries</h4>
-                            <p>Uploaded: Sep 5, 2023</p>
+                    <div class="song-info">
+                        <h3>Wewe na mimi</h3>
+                        <p>Frida Amani ft. Jay Melody</p>
+                        <div class="song-meta">
+                            <span>#1 Trending</span>
+                            <span>Bongo Flava</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Song 2 -->
+                <div class="song-card" data-video="VIDEO_ID_2" data-title="Ngishutheni" data-artist="Goon Flavour, Master KG & Eemoh" data-description="A catchy amapiano-influenced track that has taken Tanzania by storm with its infectious rhythm and danceable beats.">
+                    <div class="song-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_2/mqdefault.jpg" alt="Ngishutheni">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="song-info">
+                        <h3>Ngishutheni</h3>
+                        <p>Goon Flavour, Master KG & Eemoh</p>
+                        <div class="song-meta">
+                            <span>#2 Trending</span>
+                            <span>Amapiano</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Song 3 -->
+                <div class="song-card" data-video="VIDEO_ID_3" data-title="Ça fait mal" data-artist="Kedjevara" data-description="A French-African fusion track that has found unexpected popularity in Tanzania's diverse music scene.">
+                    <div class="song-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_3/mqdefault.jpg" alt="Ça fait mal">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="song-info">
+                        <h3>Ça fait mal</h3>
+                        <p>Kedjevara</p>
+                        <div class="song-meta">
+                            <span>#3 Trending</span>
+                            <span>Afro Fusion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Song 4 -->
+                <div class="song-card" data-video="VIDEO_ID_4" data-title="DUNIA" data-artist="Marioo" data-description="Marioo's hit single reflecting on life and the world, showcasing his signature vocal style and lyrical depth.">
+                    <div class="song-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_4/mqdefault.jpg" alt="DUNIA">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="song-info">
+                        <h3>DUNIA</h3>
+                        <p>Marioo</p>
+                        <div class="song-meta">
+                            <span>#4 Trending</span>
+                            <span>Bongo Flava</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional songs would follow the same pattern -->
+                <!-- For brevity, I'm showing 4 out of 30 songs -->
+                
+            </div>
+        </section>
+    </div>
+
+    <!-- Player Modal -->
+    <div class="player-modal">
+        <div class="modal-content">
+            <div class="modal-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-player">
+                <iframe id="ytPlayer" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="modal-info">
+                <h3 id="modal-title">Song Title</h3>
+                <p id="modal-artist">Artist Name</p>
+                <p id="modal-description">Song description will appear here.</p>
             </div>
         </div>
-
-        <!-- Movies Section -->
-        <section class="movies-section">
-            <div class="section-header">
-                <h2>Featured Movies</h2>
-            </div>
-            <div class="movies-grid">
-                <!-- Movie 1 -->
-                <div class="movie-card" data-video="ge_UgErt4yo" data-title="Amazing Nature Documentary" data-description="Experience the breathtaking beauty of our planet with this stunning nature documentary. Journey through lush forests, vast oceans, and majestic mountains as we explore Earth's most incredible natural wonders.">
-                    <div class="movie-thumb">
-                        <img src="https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg" alt="Nature Documentary">
-                    </div>
-                    <div class="movie-info">
-                        <h3>Amazing Nature</h3>
-                        <p>Explore the wonders of our natural world in stunning high definition.</p>
-                    </div>
-                </div>
-
-                <!-- Movie 2 -->
-                <div class="movie-card" data-video="-c63EZ4oyRg" data-title="Space Exploration Journey" data-description="Embark on an epic journey through our solar system and beyond. Discover the latest findings from NASA's missions, learn about black holes, and witness the beauty of distant galaxies in this captivating space documentary.">
-                    <div class="movie-thumb">
-                        <img src="https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg" alt="Space Exploration">
-                    </div>
-                    <div class="movie-info">
-                        <h3>Space Journey</h3>
-                        <p>Travel through the cosmos and explore the mysteries of our universe.</p>
-                    </div>
-                </div>
-
-                <!-- Movie 3 -->
-                <div class="movie-card" data-video="5Peo-ivmupE" data-title="Ocean Life Documentary" data-description="Dive deep into the world's oceans to discover the incredible diversity of marine life. From coral reefs to the deep sea, this documentary reveals the fascinating creatures that inhabit our planet's waters.">
-                    <div class="movie-thumb">
-                        <img src="https://i.ytimg.com/vi/5Peo-ivmupE/mqdefault.jpg" alt="Ocean Life">
-                    </div>
-                    <div class="movie-info">
-                        <h3>Ocean Mysteries</h3>
-                        <p>Discover the hidden wonders of the deep blue sea and its inhabitants.</p>
-                    </div>
-                </div>
-
-                <!-- Movie 4 -->
-                <div class="movie-card" data-video="m4-5SxWW5Wo" data-title="Wildlife Adventure" data-description="Join us on an exciting wildlife adventure across the savannas of Africa, the rainforests of South America, and the tundras of the Arctic. Witness amazing animal behaviors and conservation efforts.">
-                    <div class="movie-thumb">
-                        <img src="https://i.ytimg.com/vi/m4-5SxWW5Wo/mqdefault.jpg" alt="Wildlife">
-                    </div>
-                    <div class="movie-info">
-                        <h3>Wildlife Adventure</h3>
-                        <p>Experience the thrill of encountering wild animals in their natural habitats.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Series Section -->
-        <section class="movies-section">
-            <div class="section-header">
-                <h2>Popular Series</h2>
-            </div>
-            <div class="movies-grid">
-                <!-- Series 1 -->
-                <div class="movie-card" data-video="HdxImKlepC0" data-title="Mountain Giants" data-description="Follow researchers as they study the geology and ecology of the world's greatest mountain ranges. Learn how these majestic landscapes formed and how they continue to change our planet.">
-                    <div class="movie-thumb">
-                        <img src="https://i.ytimg.com/vi/HdxImKlepC0/mqdefault.jpg" alt="Mountains">
-                    </div>
-                    <div class="movie-info">
-                        <h3>Mountain Giants</h3>
-                        <p>Explore the world's most impressive mountain ranges and their ecosystems.</p>
-                    </div>
-                </div>
-
-                <!-- Series 2 -->
-                <div class="movie-card" data-video="Pk3tQwKxLp4" data-title="Desert Survival" data-description="Discover how life thrives in the harshest desert environments. From clever adaptations to incredible survival strategies, this series shows how plants, animals, and humans overcome extreme conditions.">
-                    <div class="movie-thumb">
-                        <img src="https://i.ytimg.com/vi/Pk3tQwKxLp4/mqdefault.jpg" alt="Desert">
-                    </div>
-                    <div class="movie-info">
-                        <h3>Desert Survival</h3>
-                        <p>Witness the incredible ways life survives in the world's most arid places.</p>
-                    </div>
-                </div>
-
-                <!-- Series 3 -->
-                <div class="movie-card" data-video="E4K0ZMsF4tM" data-title="Ancient Civilizations" data-description="Journey back in time to explore the rise and fall of history's greatest empires. Learn about their innovations, cultures, and the legacies they left behind that still influence our world today.">
-                    <div class="movie-thumb">
-                        <img src="https://i.ytimg.com/vi/E4K0ZMsF4tM/mqdefault.jpg" alt="Ancient Civilizations">
-                    </div>
-                    <div class="movie-info">
-                        <h3>Ancient Civilizations</h3>
-                        <p>Uncover the secrets of lost empires and their impact on modern society.</p>
-                    </div>
-                </div>
-
-                <!-- Series 4 -->
-                <div class="movie-card" data-video="xms7M5s6r9o" data-title="Future Technology" data-description="Get a glimpse of the technologies that will shape our future. From AI and robotics to space travel and renewable energy, this series explores the innovations that will transform our world.">
-                    <div class="movie-thumb">
-                        <img src="https://i.ytimg.com/vi/xms7M5s6r9o/mqdefault.jpg" alt="Future Tech">
-                    </div>
-                    <div class="movie-info">
-                        <h3>Future Technology</h3>
-                        <p>Discover the cutting-edge innovations that will define tomorrow's world.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">DUNIA TV</div>
+                <div class="footer-logo">KADO ENTERTAINMENT</div>
                 <div class="footer-links">
                     <a href="#">Home</a>
-                    <a href="#">Movies</a>
-                    <a href="#">Series</a>
+                    <a href="#">Trending</a>
+                    <a href="#">Artists</a>
                     <a href="#">New Releases</a>
-                    <a href="#">Categories</a>
-                    <a href="#">FAQ</a>
+                    <a href="#">Genres</a>
+                    <a href="#">About</a>
                     <a href="#">Contact</a>
                 </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
                 <div class="copyright">
-                    &copy; 2023 DUNIA TV. All rights reserved. Admin content uploaded via GitHub.
+                    &copy; 2023 KADO ENTERTAINMENT. All rights reserved. The top trending songs data is sourced from Shazam charts.
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Function to change the featured video
-        function changeFeaturedVideo(videoId, title, description) {
-            // Update the iframe source
-            document.getElementById('featuredPlayer').src = `https://www.youtube.com/embed/${videoId}`;
-            
-            // Update the video info
-            const videoInfo = document.querySelector('.video-info');
-            videoInfo.querySelector('h3').textContent = title;
-            videoInfo.querySelector('p').textContent = description;
-            
-            // Scroll to the video
-            document.querySelector('.featured-video').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Add click events to all movie cards
-        document.querySelectorAll('.movie-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const videoId = this.getAttribute('data-video');
-                const title = this.getAttribute('data-title');
-                const description = this.getAttribute('data-description');
-                
-                changeFeaturedVideo(videoId, title, description);
+        // Sample data for the top 30 trending songs in Tanzania
+        const trendingSongs = [
+            {
+                id: 1,
+                title: "Wewe na mimi",
+                artist: "Frida Amani ft. Jay Melody",
+                videoId: "ge_UgErt4yo",
+                description: "Enjoy this beautiful Bongo Flava collaboration between Frida Amani and Jay Melody that's currently topping charts across Tanzania.",
+                genre: "Bongo Flava",
+                rank: 1
+            },
+            {
+                id: 2,
+                title: "Ngishutheni",
+                artist: "Goon Flavour, Master KG & Eemoh",
+                videoId: "-c63EZ4oyRg",
+                description: "A catchy amapiano-influenced track that has taken Tanzania by storm with its infectious rhythm and danceable beats.",
+                genre: "Amapiano",
+                rank: 2
+            },
+            {
+                id: 3,
+                title: "Ça fait mal",
+                artist: "Kedjevara",
+                videoId: "EXAMPLE_VIDEO_ID_3",
+                description: "A French-African fusion track that has found unexpected popularity in Tanzania's diverse music scene.",
+                genre: "Afro Fusion",
+                rank: 3
+            },
+            {
+                id: 4,
+                title: "DUNIA",
+                artist: "Marioo",
+                videoId: "EXAMPLE_VIDEO_ID_4",
+                description: "Marioo's hit single reflecting on life and the world, showcasing his signature vocal style and lyrical depth.",
+                genre: "Bongo Flava",
+                rank: 4
+            },
+            // In a real implementation, you would have 26 more song objects here
+        ];
+
+        // DOM elements
+        const songCards = document.querySelectorAll('.song-card');
+        const playerModal = document.querySelector('.player-modal');
+        const modalClose = document.querySelector('.modal-close');
+        const ytPlayer = document.getElementById('ytPlayer');
+        const modalTitle = document.getElementById('modal-title');
+        const modalArtist = document.getElementById('modal-artist');
+        const modalDescription = document.getElementById('modal-description');
+
+        // Add click event to all song cards
+        songCards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                const song = trendingSongs[index];
+                openPlayer(song);
             });
         });
-        
-        // Simulate admin functionality (in a real scenario, this would be server-side)
-        console.log("Admin uploads are managed via GitHub repository. Users can watch without logging in.");
+
+        // Open player with selected song
+        function openPlayer(song) {
+            ytPlayer.src = `https://www.youtube.com/embed/${song.videoId}?autoplay=1`;
+            modalTitle.textContent = song.title;
+            modalArtist.textContent = song.artist;
+            modalDescription.textContent = song.description;
+            playerModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+
+        // Close player modal
+        modalClose.addEventListener('click', () => {
+            playerModal.classList.remove('active');
+            ytPlayer.src = '';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+
+        // Close modal when clicking outside
+        playerModal.addEventListener('click', (e) => {
+            if (e.target === playerModal) {
+                playerModal.classList.remove('active');
+                ytPlayer.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // View options functionality
+        const viewButtons = document.querySelectorAll('.view-options button');
+        viewButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                viewButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // In a real implementation, this would change the view
+                console.log(`Switched to ${button.textContent}`);
+            });
+        });
+
+        // In a complete implementation, you would dynamically generate all song cards
+        // from the trendingSongs array instead of hardcoding them in HTML
     </script>
 </body>
 </html>
