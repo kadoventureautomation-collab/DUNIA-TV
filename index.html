@@ -13,7 +13,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         :root {
             --primary-bg: #0f0f1a;
             --secondary-bg: #1a1a2e;
@@ -23,19 +23,19 @@
             --text-secondary: #ccccff;
             --text-muted: #a0a0d0;
         }
-        
+
         body {
             background: linear-gradient(to right, var(--primary-bg), var(--secondary-bg));
             color: var(--text-primary);
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header Styles */
         header {
             background: linear-gradient(to right, var(--secondary-bg), #16213e);
@@ -45,25 +45,25 @@
             top: 0;
             z-index: 100;
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-        
+
         .logo i {
             font-size: 2.5rem;
             color: var(--accent-color);
         }
-        
+
         .logo h1 {
             font-size: 2rem;
             font-weight: 700;
@@ -71,14 +71,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .search-container {
             flex: 1;
             max-width: 500px;
             margin: 0 20px;
             position: relative;
         }
-        
+
         .search-box {
             width: 100%;
             padding: 12px 20px;
@@ -90,13 +90,13 @@
             font-size: 1rem;
             transition: all 0.3s;
         }
-        
+
         .search-box:focus {
             outline: none;
             background: #3a3a6a;
             box-shadow: 0 0 0 2px var(--secondary-color);
         }
-        
+
         .search-icon {
             position: absolute;
             left: 15px;
@@ -104,12 +104,12 @@
             transform: translateY(-50%);
             color: var(--secondary-color);
         }
-        
+
         .user-actions {
             display: flex;
             gap: 15px;
         }
-        
+
         .user-actions button {
             background: var(--secondary-color);
             border: none;
@@ -120,18 +120,18 @@
             transition: background 0.3s;
             font-weight: 500;
         }
-        
+
         .user-actions button:hover {
             background: var(--accent-color);
         }
-        
+
         .language-selector {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-left: 15px;
         }
-        
+
         .language-selector select {
             background: #2a2a4a;
             color: white;
@@ -140,7 +140,7 @@
             border-radius: 20px;
             cursor: pointer;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
@@ -148,7 +148,7 @@
             margin-top: 15px;
             flex-wrap: wrap;
         }
-        
+
         nav a {
             color: #e6e6ff;
             text-decoration: none;
@@ -158,37 +158,37 @@
             padding: 8px 15px;
             border-radius: 20px;
         }
-        
+
         nav a:hover, nav a.active {
             color: var(--accent-color);
             background: rgba(255, 77, 148, 0.1);
         }
-        
+
         /* Hero Video Section */
         .featured-videos {
             margin: 30px 0;
         }
-        
+
         .video-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 20px;
         }
-        
+
         .main-video {
             background: var(--secondary-bg);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
-        
+
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
         }
-        
+
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -197,35 +197,35 @@
             height: 100%;
             border: none;
         }
-        
+
         .video-info {
             padding: 20px;
         }
-        
+
         .video-info h2 {
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: var(--accent-color);
         }
-        
+
         .video-info p {
             color: var(--text-secondary);
             margin-bottom: 15px;
         }
-        
+
         .video-meta {
             display: flex;
             gap: 15px;
             color: var(--text-muted);
             font-size: 0.9rem;
         }
-        
+
         .side-videos {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        
+
         .side-video-item {
             display: flex;
             gap: 15px;
@@ -235,72 +235,72 @@
             transition: transform 0.3s;
             cursor: pointer;
         }
-        
+
         .side-video-item:hover {
             transform: translateX(5px);
         }
-        
+
         .side-thumb {
             width: 120px;
             height: 80px;
             flex-shrink: 0;
         }
-        
+
         .side-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .side-info {
             padding: 10px 10px 10px 0;
         }
-        
+
         .side-info h3 {
             font-size: 0.9rem;
             margin-bottom: 5px;
             color: var(--accent-color);
         }
-        
+
         .side-info p {
             font-size: 0.8rem;
             color: var(--text-muted);
         }
-        
+
         /* Trending Sections */
         .trending-section {
             margin: 40px 0;
         }
-        
+
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
         }
-        
+
         .section-header h2 {
             font-size: 1.8rem;
             color: var(--accent-color);
         }
-        
+
         .view-all {
             color: var(--secondary-color);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         .view-all:hover {
             color: var(--accent-color);
         }
-        
+
         .trending-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
-        
+
         .trending-card {
             background: var(--secondary-bg);
             border-radius: 12px;
@@ -308,18 +308,18 @@
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
-        
+
         .trending-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
-        
+
         .trending-thumb {
             position: relative;
             padding-bottom: 56.25%;
             overflow: hidden;
         }
-        
+
         .trending-thumb img {
             position: absolute;
             top: 0;
@@ -329,11 +329,11 @@
             object-fit: cover;
             transition: transform 0.5s;
         }
-        
+
         .trending-card:hover .trending-thumb img {
             transform: scale(1.1);
         }
-        
+
         .play-overlay {
             position: absolute;
             top: 0;
@@ -347,39 +347,39 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-        
+
         .trending-thumb:hover .play-overlay {
             opacity: 1;
         }
-        
+
         .play-overlay i {
             font-size: 3rem;
             color: white;
         }
-        
+
         .trending-info {
             padding: 15px;
         }
-        
+
         .trending-info h3 {
             font-size: 1rem;
             margin-bottom: 8px;
             color: var(--accent-color);
         }
-        
+
         .trending-info p {
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 10px;
         }
-        
+
         .trending-meta {
             display: flex;
             justify-content: space-between;
             color: var(--text-muted);
             font-size: 0.8rem;
         }
-        
+
         /* Pagination */
         .pagination {
             display: flex;
@@ -387,7 +387,7 @@
             gap: 10px;
             margin: 40px 0;
         }
-        
+
         .pagination button {
             background: var(--secondary-bg);
             border: none;
@@ -398,12 +398,12 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        
+
         .pagination button:hover, .pagination button.active {
             background: var(--secondary-color);
             color: white;
         }
-        
+
         /* Footer */
         footer {
             background: #0c0c14;
@@ -411,20 +411,20 @@
             text-align: center;
             margin-top: 50px;
         }
-        
+
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
+
         .footer-logo {
             font-size: 2rem;
             font-weight: 700;
             color: var(--accent-color);
             margin-bottom: 20px;
         }
-        
+
         .footer-links {
             display: flex;
             gap: 25px;
@@ -432,23 +432,23 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-links a:hover {
             color: var(--accent-color);
         }
-        
+
         .social-icons {
             display: flex;
             gap: 20px;
             margin-bottom: 25px;
         }
-        
+
         .social-icons a {
             display: flex;
             justify-content: center;
@@ -461,80 +461,80 @@
             text-decoration: none;
             transition: background 0.3s, transform 0.3s;
         }
-        
+
         .social-icons a:hover {
             background: var(--secondary-color);
             color: white;
             transform: translateY(-3px);
         }
-        
+
         .copyright {
             color: var(--text-muted);
             font-size: 0.9rem;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         /* Responsive Design */
         @media (max-width: 900px) {
             .video-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .trending-grid {
                 grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             }
-            
+
             .header-content {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .search-container {
                 order: 3;
                 margin: 15px 0;
                 max-width: 100%;
             }
         }
-        
+
         @media (max-width: 600px) {
             .trending-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             nav ul {
                 gap: 10px;
                 justify-content: center;
             }
-            
+
             .section-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
             }
-            
+
             .user-actions {
                 width: 100%;
                 justify-content: center;
             }
-            
+
             .side-video-item {
                 flex-direction: column;
             }
-            
+
             .side-thumb {
                 width: 100%;
                 height: 120px;
             }
         }
-        
+
         /* Video optimization styles */
         .video-optimized {
             width: 100%;
             max-width: 100%;
             height: auto;
         }
-        
+
         /* Language modal */
         .language-modal {
             position: fixed;
@@ -551,12 +551,12 @@
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s;
         }
-        
+
         .language-modal.active {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .modal-content {
             width: 90%;
             max-width: 500px;
@@ -566,7 +566,7 @@
             position: relative;
             padding: 30px;
         }
-        
+
         .modal-close {
             position: absolute;
             top: 15px;
@@ -582,14 +582,14 @@
             cursor: pointer;
             z-index: 10;
         }
-        
+
         .language-options {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .language-option {
             padding: 15px;
             background: #2a2a4a;
@@ -598,7 +598,7 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        
+
         .language-option:hover {
             background: var(--secondary-color);
         }
@@ -613,12 +613,12 @@
                     <i class="fas fa-play-circle"></i>
                     <h1>KADO ENTERTAINMENT</h1>
                 </div>
-                
+
                 <div class="search-container">
                     <i class="fas fa-search search-icon"></i>
                     <input type="text" class="search-box" id="search-input" placeholder="Search for videos, artists...">
                 </div>
-                
+
                 <div class="user-actions">
                     <button id="login-btn">Sign In</button>
                     <button id="upload-btn">Upload</button>
@@ -633,7 +633,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <nav>
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
@@ -666,7 +666,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="side-videos">
                     <div class="side-video-item">
                         <div class="side-thumb">
@@ -677,7 +677,7 @@
                             <p>1.2M views • 3 days ago</p>
                         </div>
                     </div>
-                    
+
                     <div class="side-video-item">
                         <div class="side-thumb">
                             <img src="https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg" alt="Side Video 2">
@@ -687,7 +687,7 @@
                             <p>3.4M views • 1 week ago</p>
                         </div>
                     </div>
-                    
+
                     <div class="side-video-item">
                         <div class="side-thumb">
                             <img src="https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg" alt="Side Video 3">
@@ -727,7 +727,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Video 2 -->
                 <div class="trending-card">
                     <div class="trending-thumb">
@@ -745,7 +745,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Video 3 -->
                 <div class="trending-card">
                     <div class="trending-thumb">
@@ -763,7 +763,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Video 4 -->
                 <div class="trending-card">
                     <div class="trending-thumb">
@@ -810,7 +810,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Comedy Video 2 -->
                 <div class="trending-card">
                     <div class="trending-thumb">
@@ -828,7 +828,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Comedy Video 3 -->
                 <div class="trending-card">
                     <div class="trending-thumb">
@@ -846,7 +846,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Comedy Video 4 -->
                 <div class="trending-card">
                     <div class="trending-thumb">
@@ -1013,12 +1013,12 @@
         const languageSelect = document.getElementById('language-select');
         const languageModal = document.querySelector('.language-modal');
         const modalClose = document.querySelector('.modal-close');
-        
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             // Set up event listeners
             setupEventListeners();
-            
+
             // Load initial content
             loadContent();
         });
@@ -1029,22 +1029,22 @@
             searchInput.addEventListener('input', debounce(function() {
                 filterContent();
             }, 300));
-            
+
             // Language selection
             languageSelect.addEventListener('change', function() {
                 changeLanguage(this.value);
             });
-            
+
             // Close modal
             modalClose.addEventListener('click', closeModal);
-            
+
             // Close modal when clicking outside
             languageModal.addEventListener('click', function(e) {
                 if (e.target === languageModal) {
                     closeModal();
                 }
             });
-            
+
             // Language options
             document.querySelectorAll('.language-option').forEach(option => {
                 option.addEventListener('click', function() {
@@ -1052,12 +1052,12 @@
                     closeModal();
                 });
             });
-            
+
             // Simulate user actions
             document.getElementById('login-btn').addEventListener('click', function() {
                 alert('Login functionality would be implemented here.');
             });
-            
+
             document.getElementById('upload-btn').addEventListener('click', function() {
                 alert('Upload functionality would be implemented here.');
             });
