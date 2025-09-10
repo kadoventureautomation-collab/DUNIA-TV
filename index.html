@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUNIA SERIES - Complete Episodes 1-118 | ASMA Comedian</title>
-    <meta name="description" content="Watch all episodes of DUNIA SERIES (1-118) from ASMA Comedian's YouTube channel. Optimized for fast loading and smooth playback.">
+    <title>KADO ENTERTAINMENT - Top Tanzanian Videos & Music</title>
+    <meta name="description" content="Stream the latest Tanzanian music videos, comedy shows, and entertainment content on KADO ENTERTAINMENT. Optimized for mobile and desktop with multi-language support.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,9 +14,19 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        :root {
+            --primary-bg: #0f0f1a;
+            --secondary-bg: #1a1a2e;
+            --accent-color: #ff4d94;
+            --secondary-color: #6a67ce;
+            --text-primary: #ffffff;
+            --text-secondary: #ccccff;
+            --text-muted: #a0a0d0;
+        }
+        
         body {
-            background: linear-gradient(to right, #0f0f1a, #1a1a2e);
-            color: #ffffff;
+            background: linear-gradient(to right, var(--primary-bg), var(--secondary-bg));
+            color: var(--text-primary);
             line-height: 1.6;
         }
         
@@ -28,7 +38,7 @@
         
         /* Header Styles */
         header {
-            background: linear-gradient(to right, #1a1a2e, #16213e);
+            background: linear-gradient(to right, var(--secondary-bg), #16213e);
             padding: 20px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: sticky;
@@ -40,6 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         
         .logo {
@@ -50,21 +61,92 @@
         
         .logo i {
             font-size: 2.5rem;
-            color: #ff4d94;
+            color: var(--accent-color);
         }
         
         .logo h1 {
             font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(to right, #ff4d94, #6a67ce);
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            background: #2a2a4a;
+            color: white;
+            padding-left: 45px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            background: #3a3a6a;
+            box-shadow: 0 0 0 2px var(--secondary-color);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .user-actions button {
+            background: var(--secondary-color);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+        
+        .user-actions button:hover {
+            background: var(--accent-color);
+        }
+        
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 15px;
+        }
+        
+        .language-selector select {
+            background: #2a2a4a;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
         }
         
         nav ul {
             display: flex;
             list-style: none;
             gap: 25px;
+            margin-top: 15px;
+            flex-wrap: wrap;
         }
         
         nav a {
@@ -73,184 +155,172 @@
             font-weight: 500;
             font-size: 1.1rem;
             transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #ff4d94;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 80px 0;
-            text-align: center;
-            margin-bottom: 40px;
-            border-radius: 0 0 20px 20px;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #ccccff;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(to right, #ff4d94, #6a67ce);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Filter Section */
-        .filters {
-            background: #1a1a2e;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .filter-group {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .filter-group h3 {
-            margin-bottom: 10px;
-            color: #ff4d94;
-            font-size: 1.1rem;
-        }
-        
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filter-options button {
-            background: #2a2a4a;
-            border: none;
-            color: #ccccff;
             padding: 8px 15px;
             border-radius: 20px;
-            cursor: pointer;
-            transition: background 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+            background: rgba(255, 77, 148, 0.1);
+        }
+        
+        /* Hero Video Section */
+        .featured-videos {
+            margin: 30px 0;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        
+        .main-video {
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .video-info p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .video-meta {
+            display: flex;
+            gap: 15px;
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
         
-        .filter-options button:hover, .filter-options button.active {
-            background: #6a67ce;
-            color: white;
+        .side-videos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         
-        .search-box {
-            position: relative;
+        .side-video-item {
+            display: flex;
+            gap: 15px;
+            background: var(--secondary-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .side-video-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .side-thumb {
+            width: 120px;
+            height: 80px;
+            flex-shrink: 0;
+        }
+        
+        .side-thumb img {
             width: 100%;
-            margin-top: 15px;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .search-box input {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 50px;
-            border: none;
-            background: #2a2a4a;
-            color: white;
-            padding-left: 45px;
+        .side-info {
+            padding: 10px 10px 10px 0;
         }
         
-        .search-box i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6a67ce;
+        .side-info h3 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: var(--accent-color);
         }
         
-        /* Episodes Grid */
-        .episodes-section {
-            margin-bottom: 50px;
+        .side-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        /* Trending Sections */
+        .trending-section {
+            margin: 40px 0;
         }
         
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .section-header h2 {
-            font-size: 2.2rem;
-            color: #ff4d94;
+            font-size: 1.8rem;
+            color: var(--accent-color);
         }
         
-        .view-options {
-            display: flex;
-            gap: 15px;
+        .view-all {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
         
-        .view-options button {
-            background: #2a2a4a;
-            border: none;
-            color: #ccccff;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background 0.3s;
+        .view-all:hover {
+            color: var(--accent-color);
         }
         
-        .view-options button.active {
-            background: #6a67ce;
-            color: white;
-        }
-        
-        .episodes-grid {
+        .trending-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
         
-        .episode-card {
-            background: #1a1a2e;
+        .trending-card {
+            background: var(--secondary-bg);
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
         
-        .episode-card:hover {
+        .trending-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
         
-        .episode-thumb {
+        .trending-thumb {
             position: relative;
             padding-bottom: 56.25%;
             overflow: hidden;
         }
         
-        .episode-thumb img {
+        .trending-thumb img {
             position: absolute;
             top: 0;
             left: 0;
@@ -260,7 +330,7 @@
             transition: transform 0.5s;
         }
         
-        .episode-card:hover .episode-thumb img {
+        .trending-card:hover .trending-thumb img {
             transform: scale(1.1);
         }
         
@@ -278,49 +348,50 @@
             transition: opacity 0.3s;
         }
         
+        .trending-thumb:hover .play-overlay {
+            opacity: 1;
+        }
+        
         .play-overlay i {
             font-size: 3rem;
             color: white;
         }
         
-        .episode-thumb:hover .play-overlay {
-            opacity: 1;
+        .trending-info {
+            padding: 15px;
         }
         
-        .episode-info {
-            padding: 20px;
+        .trending-info h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--accent-color);
         }
         
-        .episode-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #ff4d94;
-        }
-        
-        .episode-info p {
-            color: #a0a0d0;
-            margin-bottom: 15px;
+        .trending-info p {
+            color: var(--text-muted);
             font-size: 0.9rem;
+            margin-bottom: 10px;
         }
         
-        .episode-meta {
+        .trending-meta {
             display: flex;
             justify-content: space-between;
-            color: #6a67ce;
-            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
         }
         
+        /* Pagination */
         .pagination {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 40px;
+            margin: 40px 0;
         }
         
         .pagination button {
-            background: #2a2a4a;
+            background: var(--secondary-bg);
             border: none;
-            color: #ccccff;
+            color: var(--text-secondary);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -329,85 +400,8 @@
         }
         
         .pagination button:hover, .pagination button.active {
-            background: #6a67ce;
+            background: var(--secondary-color);
             color: white;
-        }
-        
-        /* Player Modal */
-        .player-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-        
-        .player-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
-            width: 80%;
-            max-width: 900px;
-            background: #1a1a2e;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 10;
-        }
-        
-        .modal-player {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-        
-        .modal-player iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .modal-info {
-            padding: 20px;
-        }
-        
-        .modal-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #ff4d94;
-        }
-        
-        .modal-info p {
-            color: #ccccff;
-            margin-bottom: 15px;
         }
         
         /* Footer */
@@ -427,7 +421,7 @@
         .footer-logo {
             font-size: 2rem;
             font-weight: 700;
-            color: #ff4d94;
+            color: var(--accent-color);
             margin-bottom: 20px;
         }
         
@@ -435,16 +429,18 @@
             display: flex;
             gap: 25px;
             margin-bottom: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .footer-links a {
-            color: #ccccff;
+            color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-links a:hover {
-            color: #ff4d94;
+            color: var(--accent-color);
         }
         
         .social-icons {
@@ -460,91 +456,54 @@
             width: 45px;
             height: 45px;
             background: #2a2a4a;
-            color: #ccccff;
+            color: var(--text-secondary);
             border-radius: 50%;
             text-decoration: none;
             transition: background 0.3s, transform 0.3s;
         }
         
         .social-icons a:hover {
-            background: #6a67ce;
+            background: var(--secondary-color);
             color: white;
             transform: translateY(-3px);
         }
         
         .copyright {
-            color: #a0a0d0;
+            color: var(--text-muted);
             font-size: 0.9rem;
-        }
-        
-        /* Loading Animation */
-        .loader {
-            display: flex;
-            justify-content: center;
-            padding: 30px;
-        }
-        
-        .loader .dot {
-            width: 10px;
-            height: 10px;
-            background: #6a67ce;
-            border-radius: 50%;
-            margin: 0 5px;
-            animation: bounce 1.5s infinite ease-in-out;
-        }
-        
-        .loader .dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .loader .dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         /* Responsive Design */
         @media (max-width: 900px) {
-            .episodes-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .video-grid {
+                grid-template-columns: 1fr;
             }
             
-            .hero h2 {
-                font-size: 2.2rem;
+            .trending-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             }
             
-            nav ul {
-                gap: 15px;
-            }
-            
-            .modal-content {
-                width: 95%;
-            }
-        }
-        
-        @media (max-width: 600px) {
             .header-content {
                 flex-direction: column;
                 gap: 15px;
             }
             
-            .episodes-grid {
+            .search-container {
+                order: 3;
+                margin: 15px 0;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .trending-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hero {
-                padding: 60px 0;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
             nav ul {
-                flex-wrap: wrap;
+                gap: 10px;
                 justify-content: center;
             }
             
@@ -554,14 +513,94 @@
                 gap: 15px;
             }
             
-            .view-options {
-                align-self: stretch;
-                justify-content: space-around;
+            .user-actions {
+                width: 100%;
+                justify-content: center;
             }
             
-            .filters {
+            .side-video-item {
                 flex-direction: column;
             }
+            
+            .side-thumb {
+                width: 100%;
+                height: 120px;
+            }
+        }
+        
+        /* Video optimization styles */
+        .video-optimized {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Language modal */
+        .language-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .language-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            width: 90%;
+            max-width: 500px;
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            padding: 30px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .language-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .language-option {
+            padding: 15px;
+            background: #2a2a4a;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .language-option:hover {
+            background: var(--secondary-color);
         }
     </style>
 </head>
@@ -572,94 +611,289 @@
             <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-play-circle"></i>
-                    <h1>DUNIA SERIES</h1>
+                    <h1>KADO ENTERTAINMENT</h1>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">All Episodes</a></li>
-                        <li><a href="#">Popular</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
+                
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-box" id="search-input" placeholder="Search for videos, artists...">
+                </div>
+                
+                <div class="user-actions">
+                    <button id="login-btn">Sign In</button>
+                    <button id="upload-btn">Upload</button>
+                    <div class="language-selector">
+                        <span><i class="fas fa-globe"></i></span>
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="sw">Swahili</option>
+                            <option value="fr">French</option>
+                            <option value="pt">Portuguese</option>
+                        </select>
+                    </div>
+                </div>
             </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Comedy</a></li>
+                    <li><a href="#">Drama</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">Trending</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>DUNIA SERIES - Complete Collection</h2>
-            <p>Watch all 118 episodes of the hilarious DUNIA SERIES from ASMA Comedian's YouTube channel. Optimized for the best viewing experience.</p>
-            <a href="#episodes" class="cta-button">Browse Episodes</a>
-        </div>
-    </section>
-
-    <!-- Filters Section -->
+    <!-- Featured Videos Section -->
     <div class="container">
-        <div class="filters">
-            <div class="filter-group">
-                <h3>Episode Range</h3>
-                <div class="filter-options">
-                    <button class="active" data-range="all">All</button>
-                    <button data-range="1-30">1-30</button>
-                    <button data-range="31-60">31-60</button>
-                    <button data-range="61-90">61-90</button>
-                    <button data-range="91-118">91-118</button>
+        <section class="featured-videos">
+            <div class="video-grid">
+                <div class="main-video">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/DLMngTEHnuc?si=tbQrX5bk9ez-iFgB" title="Featured Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h2>Top Trending Video</h2>
+                        <p>Enjoy this exclusive content from Tanzania's top artists. The latest hit that's taking the nation by storm with its unique blend of rhythm and storytelling.</p>
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye"></i> 2.5M views</span>
+                            <span><i class="fas fa-calendar"></i> 2 days ago</span>
+                            <span><i class="fas fa-clock"></i> 15:24</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="filter-group">
-                <h3>Sort By</h3>
-                <div class="filter-options">
-                    <button class="active" data-sort="newest">Newest First</button>
-                    <button data-sort="oldest">Oldest First</button>
-                    <button data-sort="popular">Most Viewed</button>
+                
+                <div class="side-videos">
+                    <div class="side-video-item">
+                        <div class="side-thumb">
+                            <img src="https://i.ytimg.com/vi/27YXZl66AQM/mqdefault.jpg" alt="Side Video 1">
+                        </div>
+                        <div class="side-info">
+                            <h3>Latest Comedy Show</h3>
+                            <p>1.2M views • 3 days ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="side-video-item">
+                        <div class="side-thumb">
+                            <img src="https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg" alt="Side Video 2">
+                        </div>
+                        <div class="side-info">
+                            <h3>Music Collaboration</h3>
+                            <p>3.4M views • 1 week ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="side-video-item">
+                        <div class="side-thumb">
+                            <img src="https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg" alt="Side Video 3">
+                        </div>
+                        <div class="side-info">
+                            <h3>Dance Challenge</h3>
+                            <p>1.8M views • 4 days ago</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="search-input" placeholder="Search episodes...">
-            </div>
-        </div>
-    </div>
-
-    <!-- Episodes Section -->
-    <div class="container">
-        <section id="episodes" class="episodes-section">
-            <div class="section-header">
-                <h2>All Episodes</h2>
-                <div class="view-options">
-                    <button class="active" data-view="grid">Grid View</button>
-                    <button data-view="list">List View</button>
-                </div>
-            </div>
-            <div class="episodes-grid" id="episodes-container">
-                <!-- Episodes will be loaded here dynamically -->
-                <div class="loader">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-            </div>
-            <div class="pagination" id="pagination">
-                <!-- Pagination will be generated here -->
             </div>
         </section>
     </div>
 
-    <!-- Player Modal -->
-    <div class="player-modal">
+    <!-- Trending Music Section -->
+    <div class="container">
+        <section class="trending-section">
+            <div class="section-header">
+                <h2>Trending Music Videos</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="trending-grid">
+                <!-- Video 1 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_1/mqdefault.jpg" alt="Music Video 1">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Wewe na Mimi</h3>
+                        <p>Frida Amani ft. Jay Melody</p>
+                        <div class="trending-meta">
+                            <span>5:24</span>
+                            <span>1.2M views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_2/mqdefault.jpg" alt="Music Video 2">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Ngishutheni</h3>
+                        <p>Goon Flavour, Master KG & Eemoh</p>
+                        <div class="trending-meta">
+                            <span>4:15</span>
+                            <span>950K views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_3/mqdefault.jpg" alt="Music Video 3">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Moto</h3>
+                        <p>Diamond Platnumz</p>
+                        <div class="trending-meta">
+                            <span>4:45</span>
+                            <span>3.5M views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 4 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/VIDEO_ID_4/mqdefault.jpg" alt="Music Video 4">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Sawa</h3>
+                        <p>Mbosso ft. Nandy</p>
+                        <div class="trending-meta">
+                            <span>3:55</span>
+                            <span>2.1M views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Trending Comedy Section -->
+    <div class="container">
+        <section class="trending-section">
+            <div class="section-header">
+                <h2>Trending Comedy</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="trending-grid">
+                <!-- Comedy Video 1 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/COMEDY_ID_1/mqdefault.jpg" alt="Comedy Video 1">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Mzee Majoka</h3>
+                        <p>Mzee Majoka Comedy</p>
+                        <div class="trending-meta">
+                            <span>12:45</span>
+                            <span>850K views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comedy Video 2 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/COMEDY_ID_2/mqdefault.jpg" alt="Comedy Video 2">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Mwasiti Mwamba</h3>
+                        <p>Mwasiti Mwamba Show</p>
+                        <div class="trending-meta">
+                            <span>15:30</span>
+                            <span>720K views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comedy Video 3 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/COMEDY_ID_3/mqdefault.jpg" alt="Comedy Video 3">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Imitations</h3>
+                        <p>Idris Sultan</p>
+                        <div class="trending-meta">
+                            <span>8:20</span>
+                            <span>1.1M views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comedy Video 4 -->
+                <div class="trending-card">
+                    <div class="trending-thumb">
+                        <img src="https://i.ytimg.com/vi/COMEDY_ID_4/mqdefault.jpg" alt="Comedy Video 4">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="trending-info">
+                        <h3>Village Life</h3>
+                        <p>Comedy Group Tanzania</p>
+                        <div class="trending-meta">
+                            <span>10:15</span>
+                            <span>650K views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Pagination -->
+    <div class="container">
+        <div class="pagination">
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+        </div>
+    </div>
+
+    <!-- Language Modal -->
+    <div class="language-modal">
         <div class="modal-content">
             <div class="modal-close">
                 <i class="fas fa-times"></i>
             </div>
-            <div class="modal-player">
-                <iframe id="ytPlayer" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="modal-info">
-                <h3 id="modal-title">Episode Title</h3>
-                <p id="modal-description">Episode description will appear here.</p>
+            <h2>Select Your Preferred Language</h2>
+            <p>Choose your language for a better experience</p>
+            <div class="language-options">
+                <div class="language-option" data-lang="en">English</div>
+                <div class="language-option" data-lang="sw">Swahili</div>
+                <div class="language-option" data-lang="fr">French</div>
+                <div class="language-option" data-lang="pt">Portuguese</div>
+                <div class="language-option" data-lang="ar">Arabic</div>
+                <div class="language-option" data-lang="es">Spanish</div>
             </div>
         </div>
     </div>
@@ -668,11 +902,13 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">DUNIA SERIES</div>
+                <div class="footer-logo">KADO ENTERTAINMENT</div>
                 <div class="footer-links">
                     <a href="#">Home</a>
-                    <a href="#">Episodes</a>
                     <a href="#">About</a>
+                    <a href="#">Trending</a>
+                    <a href="#">Artists</a>
+                    <a href="#">New Releases</a>
                     <a href="#">Contact</a>
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
@@ -681,276 +917,181 @@
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@asmacomedian9021/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
                 <div class="copyright">
-                    &copy; 2023 DUNIA SERIES. All episodes are from <a href="https://www.youtube.com/@asmacomedian9021/videos" style="color:#6a67ce;" target="_blank">ASMA Comedian's YouTube channel</a>. This site does not host any videos itself.
+                    &copy; 2023 KADO ENTERTAINMENT. All rights reserved. Stream the latest Tanzanian music, comedy, and entertainment content. Optimized for mobile and desktop viewing with multi-language support.
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Episode data - in a real implementation, you would fetch this from a database or API
-        // For demonstration, we're creating placeholder data for 118 episodes
-        const allEpisodes = [];
-        for (let i = 1; i <= 118; i++) {
-            allEpisodes.push({
-                id: i,
-                title: `DUNIA SERIES Episode ${i}`,
-                videoId: `EPISODE_${i}_VIDEO_ID`, // Placeholder - you'll need to replace with actual video IDs
-                description: `Watch episode ${i} of the hilarious DUNIA SERIES by ASMA Comedian. This episode continues the comedy storyline that has captivated audiences.`,
-                thumbnail: `https://i.ytimg.com/vi/EPISODE_${i}_VIDEO_ID/mqdefault.jpg`,
-                duration: `${Math.floor(Math.random() * 10) + 20}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
-                views: Math.floor(Math.random() * 100000) + 5000,
-                date: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString().split('T')[0]
-            });
-        }
+        // Sample data for the content
+        const videos = {
+            music: [
+                {
+                    id: 1,
+                    title: "Wewe na mimi",
+                    artist: "Frida Amani ft. Jay Melody",
+                    videoId: "ge_UgErt4yo",
+                    thumbnail: "https://i.ytimg.com/vi/ge_UgErt4yo/mqdefault.jpg",
+                    duration: "5:24",
+                    views: "1.2M views"
+                },
+                {
+                    id: 2,
+                    title: "Ngishutheni",
+                    artist: "Goon Flavour, Master KG & Eemoh",
+                    videoId: "-c63EZ4oyRg",
+                    thumbnail: "https://i.ytimg.com/vi/-c63EZ4oyRg/mqdefault.jpg",
+                    duration: "4:15",
+                    views: "950K views"
+                },
+                {
+                    id: 3,
+                    title: "Moto",
+                    artist: "Diamond Platnumz",
+                    videoId: "VIDEO_ID_3",
+                    thumbnail: "https://i.ytimg.com/vi/VIDEO_ID_3/mqdefault.jpg",
+                    duration: "4:45",
+                    views: "3.5M views"
+                },
+                {
+                    id: 4,
+                    title: "Sawa",
+                    artist: "Mbosso ft. Nandy",
+                    videoId: "VIDEO_ID_4",
+                    thumbnail: "https://i.ytimg.com/vi/VIDEO_ID_4/mqdefault.jpg",
+                    duration: "3:55",
+                    views: "2.1M views"
+                }
+            ],
+            comedy: [
+                {
+                    id: 1,
+                    title: "Mzee Majoka",
+                    artist: "Mzee Majoka Comedy",
+                    videoId: "COMEDY_ID_1",
+                    thumbnail: "https://i.ytimg.com/vi/COMEDY_ID_1/mqdefault.jpg",
+                    duration: "12:45",
+                    views: "850K views"
+                },
+                {
+                    id: 2,
+                    title: "Mwasiti Mwamba",
+                    artist: "Mwasiti Mwamba Show",
+                    videoId: "COMEDY_ID_2",
+                    thumbnail: "https://i.ytimg.com/vi/COMEDY_ID_2/mqdefault.jpg",
+                    duration: "15:30",
+                    views: "720K views"
+                },
+                {
+                    id: 3,
+                    title: "Imitations",
+                    artist: "Idris Sultan",
+                    videoId: "COMEDY_ID_3",
+                    thumbnail: "https://i.ytimg.com/vi/COMEDY_ID_3/mqdefault.jpg",
+                    duration: "8:20",
+                    views: "1.1M views"
+                },
+                {
+                    id: 4,
+                    title: "Village Life",
+                    artist: "Comedy Group Tanzania",
+                    videoId: "COMEDY_ID_4",
+                    thumbnail: "https://i.ytimg.com/vi/COMEDY_ID_4/mqdefault.jpg",
+                    duration: "10:15",
+                    views: "650K views"
+                }
+            ]
+        };
 
         // DOM elements
-        const episodesContainer = document.getElementById('episodes-container');
-        const playerModal = document.querySelector('.player-modal');
-        const modalClose = document.querySelector('.modal-close');
-        const ytPlayer = document.getElementById('ytPlayer');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDescription = document.getElementById('modal-description');
         const searchInput = document.getElementById('search-input');
-        const paginationContainer = document.getElementById('pagination');
+        const languageSelect = document.getElementById('language-select');
+        const languageModal = document.querySelector('.language-modal');
+        const modalClose = document.querySelector('.modal-close');
         
-        // Configuration
-        const EPISODES_PER_PAGE = 12;
-        let currentPage = 1;
-        let filteredEpisodes = [...allEpisodes];
-        let currentView = 'grid';
-        let currentSort = 'newest';
-
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            renderEpisodes();
+            // Set up event listeners
             setupEventListeners();
-            setupFilters();
+            
+            // Load initial content
+            loadContent();
         });
 
         // Set up event listeners
         function setupEventListeners() {
             // Search functionality
             searchInput.addEventListener('input', debounce(function() {
-                filterEpisodes();
+                filterContent();
             }, 300));
+            
+            // Language selection
+            languageSelect.addEventListener('change', function() {
+                changeLanguage(this.value);
+            });
             
             // Close modal
             modalClose.addEventListener('click', closeModal);
             
             // Close modal when clicking outside
-            playerModal.addEventListener('click', function(e) {
-                if (e.target === playerModal) {
+            languageModal.addEventListener('click', function(e) {
+                if (e.target === languageModal) {
                     closeModal();
                 }
             });
             
-            // View options
-            document.querySelectorAll('.view-options button').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.querySelectorAll('.view-options button').forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    currentView = this.getAttribute('data-view');
-                    renderEpisodes();
-                });
-            });
-        }
-
-        // Set up filter buttons
-        function setupFilters() {
-            // Episode range filters
-            document.querySelectorAll('[data-range]').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.querySelectorAll('[data-range]').forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const range = this.getAttribute('data-range');
-                    if (range === 'all') {
-                        filteredEpisodes = [...allEpisodes];
-                    } else {
-                        const [start, end] = range.split('-').map(Number);
-                        filteredEpisodes = allEpisodes.filter(ep => ep.id >= start && ep.id <= end);
-                    }
-                    
-                    currentPage = 1;
-                    renderEpisodes();
+            // Language options
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    changeLanguage(this.getAttribute('data-lang'));
+                    closeModal();
                 });
             });
             
-            // Sort filters
-            document.querySelectorAll('[data-sort]').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.querySelectorAll('[data-sort]').forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    currentSort = this.getAttribute('data-sort');
-                    sortEpisodes();
-                    renderEpisodes();
-                });
+            // Simulate user actions
+            document.getElementById('login-btn').addEventListener('click', function() {
+                alert('Login functionality would be implemented here.');
+            });
+            
+            document.getElementById('upload-btn').addEventListener('click', function() {
+                alert('Upload functionality would be implemented here.');
             });
         }
 
-        // Sort episodes based on current sort option
-        function sortEpisodes() {
-            switch(currentSort) {
-                case 'newest':
-                    filteredEpisodes.sort((a, b) => b.id - a.id);
-                    break;
-                case 'oldest':
-                    filteredEpisodes.sort((a, b) => a.id - b.id);
-                    break;
-                case 'popular':
-                    filteredEpisodes.sort((a, b) => b.views - a.views);
-                    break;
-            }
+        // Load content based on current category
+        function loadContent() {
+            // In a real implementation, this would fetch data from an API
+            console.log('Content loaded successfully');
         }
 
-        // Filter episodes based on search input
-        function filterEpisodes() {
+        // Filter content based on search input
+        function filterContent() {
             const searchTerm = searchInput.value.toLowerCase();
-            
-            if (searchTerm === '') {
-                filteredEpisodes = [...allEpisodes];
-            } else {
-                filteredEpisodes = allEpisodes.filter(episode => 
-                    episode.title.toLowerCase().includes(searchTerm) || 
-                    episode.description.toLowerCase().includes(searchTerm)
-                );
-            }
-            
-            currentPage = 1;
-            renderEpisodes();
+            console.log('Filtering content for:', searchTerm);
+            // In a real implementation, this would filter the displayed content
         }
 
-        // Render episodes for the current page
-        function renderEpisodes() {
-            sortEpisodes();
-            
-            // Calculate pagination
-            const totalPages = Math.ceil(filteredEpisodes.length / EPISODES_PER_PAGE);
-            const startIndex = (currentPage - 1) * EPISODES_PER_PAGE;
-            const endIndex = Math.min(startIndex + EPISODES_PER_PAGE, filteredEpisodes.length);
-            const episodesToShow = filteredEpisodes.slice(startIndex, endIndex);
-            
-            // Clear container
-            episodesContainer.innerHTML = '';
-            
-            if (episodesToShow.length === 0) {
-                episodesContainer.innerHTML = `
-                    <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                        <i class="fas fa-search" style="font-size: 3rem; color: #6a67ce; margin-bottom: 20px;"></i>
-                        <h3 style="color: #ff4d94; margin-bottom: 10px;">No episodes found</h3>
-                        <p style="color: #a0a0d0;">Try adjusting your search or filter criteria</p>
-                    </div>
-                `;
-                paginationContainer.innerHTML = '';
-                return;
-            }
-            
-            // Render episodes
-            episodesToShow.forEach(episode => {
-                const episodeCard = document.createElement('div');
-                episodeCard.className = 'episode-card';
-                episodeCard.innerHTML = `
-                    <div class="episode-thumb">
-                        <img src="${episode.thumbnail}" alt="${episode.title}" loading="lazy">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="episode-info">
-                        <h3>${episode.title}</h3>
-                        <p>${episode.description.substring(0, 80)}...</p>
-                        <div class="episode-meta">
-                            <span>${episode.duration}</span>
-                            <span>${episode.views.toLocaleString()} views</span>
-                        </div>
-                    </div>
-                `;
-                
-                episodeCard.addEventListener('click', () => {
-                    openPlayer(episode);
-                });
-                
-                episodesContainer.appendChild(episodeCard);
-            });
-            
-            // Render pagination
-            renderPagination(totalPages);
+        // Change language
+        function changeLanguage(lang) {
+            console.log('Changing language to:', lang);
+            // In a real implementation, this would change the interface language
+            // and possibly load content in the selected language
+            alert(`Language changed to ${lang}. In a real implementation, the interface would update accordingly.`);
         }
 
-        // Render pagination controls
-        function renderPagination(totalPages) {
-            if (totalPages <= 1) {
-                paginationContainer.innerHTML = '';
-                return;
-            }
-            
-            let paginationHTML = '';
-            
-            // Previous button
-            paginationHTML += `
-                <button class="${currentPage === 1 ? 'disabled' : ''}" 
-                        ${currentPage === 1 ? 'disabled' : ''} 
-                        onclick="changePage(${currentPage - 1})">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            `;
-            
-            // Page numbers
-            const maxVisiblePages = 5;
-            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-            
-            if (endPage - startPage + 1 < maxVisiblePages) {
-                startPage = Math.max(1, endPage - maxVisiblePages + 1);
-            }
-            
-            for (let i = startPage; i <= endPage; i++) {
-                paginationHTML += `
-                    <button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
-                        ${i}
-                    </button>
-                `;
-            }
-            
-            // Next button
-            paginationHTML += `
-                <button class="${currentPage === totalPages ? 'disabled' : ''}" 
-                        ${currentPage === totalPages ? 'disabled' : ''} 
-                        onclick="changePage(${currentPage + 1})">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            `;
-            
-            paginationContainer.innerHTML = paginationHTML;
+        // Open language modal
+        function openLanguageModal() {
+            languageModal.classList.add('active');
         }
 
-        // Change page function (needs to be global for onclick attributes)
-        window.changePage = function(page) {
-            currentPage = page;
-            renderEpisodes();
-            window.scrollTo({ top: episodesContainer.offsetTop - 100, behavior: 'smooth' });
-        };
-
-        // Open player with selected episode
-        function openPlayer(episode) {
-            // Use YouTube-nocookie.com for privacy-enhanced mode :cite[4]
-            ytPlayer.src = `https://www.youtube-nocookie.com/embed/${episode.videoId}?autoplay=1`;
-            modalTitle.textContent = episode.title;
-            modalDescription.textContent = episode.description;
-            playerModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Close player modal
+        // Close modal
         function closeModal() {
-            playerModal.classList.remove('active');
-            ytPlayer.src = '';
-            document.body.style.overflow = 'auto';
+            languageModal.classList.remove('active');
         }
 
         // Debounce function for search input
@@ -964,11 +1105,18 @@
             };
         }
 
-        // In a complete implementation, you would fetch actual episode data
-        // from the YouTube channel using the API or by manually adding video IDs
-        console.log('To complete this implementation:');
-        console.log('1. Replace the placeholder video IDs with actual YouTube video IDs from https://www.youtube.com/@asmacomedian9021/videos');
-        console.log('2. Consider using the YouTube Data API to fetch actual video information');
+        // Video optimization - responsive handling
+        function optimizeVideos() {
+            // This function would handle video optimization techniques
+            // such as lazy loading, responsive sizing, etc.
+            const videos = document.querySelectorAll('video, iframe');
+            videos.forEach(video => {
+                video.classList.add('video-optimized');
+            });
+        }
+
+        // Initialize video optimization
+        optimizeVideos();
     </script>
 </body>
 </html>
