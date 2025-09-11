@@ -313,6 +313,17 @@
             transform: translateY(-5px);
         }
         
+        .video-card.highlight {
+            box-shadow: 0 0 0 3px var(--primary);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 3px var(--primary); }
+            50% { box-shadow: 0 0 0 6px rgba(229, 9, 20, 0.5); }
+            100% { box-shadow: 0 0 0 3px var(--primary); }
+        }
+        
         .video-platform {
             position: absolute;
             top: 10px;
@@ -736,6 +747,46 @@
             transform: translateY(0);
         }
         
+        /* Video Autoplay Overlay */
+        .autoplay-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .autoplay-overlay.active {
+            display: flex;
+        }
+        
+        .autoplay-content {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .autoplay-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .autoplay-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             nav ul {
@@ -773,6 +824,18 @@
     </style>
 </head>
 <body>
+    <!-- Autoplay Overlay -->
+    <div class="autoplay-overlay" id="autoplayOverlay">
+        <div class="autoplay-content">
+            <h2 class="autoplay-title">Video Ready to Play</h2>
+            <p>You've been redirected from a shared link. The video will start playing automatically.</p>
+            <div class="autoplay-buttons">
+                <button class="btn" id="playNowBtn">Play Now</button>
+                <button class="btn btn-secondary" id="cancelAutoplay">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-content">
@@ -881,7 +944,7 @@
         </section>
         
         <!-- Videos Section with Platform Classification -->
-        <section class="videos-section">
+        <section class="videos-section" id="videosSection">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Featured Videos 
@@ -903,7 +966,7 @@
                 
                 <div class="videos-grid">
                     <!-- Facebook Videos -->
-                    <div class="video-card" data-platform="facebook">
+                    <div class="video-card" data-platform="facebook" data-video-id="fb-1">
                         <div class="video-platform facebook">Facebook</div>
                         <div class="video-wrapper facebook-video">
                             <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1175683244322733%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
@@ -917,7 +980,7 @@
                         </div>
                     </div>
                     
-                    <div class="video-card" data-platform="facebook">
+                    <div class="video-card" data-platform="facebook" data-video-id="fb-2">
                         <div class="video-platform facebook">Facebook</div>
                         <div class="video-wrapper facebook-video">
                             <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F720848720788666%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
@@ -931,7 +994,7 @@
                         </div>
                     </div>
                     
-                    <div class="video-card" data-platform="facebook">
+                    <div class="video-card" data-platform="facebook" data-video-id="fb-3">
                         <div class="video-platform facebook">Facebook</div>
                         <div class="video-wrapper facebook-video">
                             <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1319015693286565%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
@@ -946,7 +1009,7 @@
                     </div>
                     
                     <!-- YouTube Videos -->
-                    <div class="video-card" data-platform="youtube">
+                    <div class="video-card" data-platform="youtube" data-video-id="yt-1">
                         <div class="video-platform youtube">YouTube</div>
                         <div class="video-wrapper youtube-video">
                             <iframe src="https://www.youtube.com/embed/DLMngTEHnuc?si=nT_hktCfv4mI2lFv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -960,7 +1023,7 @@
                         </div>
                     </div>
                     
-                    <div class="video-card" data-platform="youtube">
+                    <div class="video-card" data-platform="youtube" data-video-id="yt-2">
                         <div class="video-platform youtube">YouTube</div>
                         <div class="video-wrapper youtube-video">
                             <iframe src="https://www.youtube.com/embed/27YXZl66AQM?si=rMZmE9uqauLEgcHS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -974,7 +1037,7 @@
                         </div>
                     </div>
                     
-                    <div class="video-card" data-platform="youtube">
+                    <div class="video-card" data-platform="youtube" data-video-id="yt-3">
                         <div class="video-platform youtube">YouTube</div>
                         <div class="video-wrapper youtube-video">
                             <iframe src="https://www.youtube.com/embed/ge_UgErt4yo?si=bInVK5sfWWBXB_h6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -988,7 +1051,7 @@
                         </div>
                     </div>
                     
-                    <div class="video-card" data-platform="youtube">
+                    <div class="video-card" data-platform="youtube" data-video-id="yt-4">
                         <div class="video-platform youtube">YouTube</div>
                         <div class="video-wrapper youtube-video">
                             <iframe src="https://www.youtube.com/embed/ddk_25wr1pc?si=64wGnsfV_yGRBneR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1348,9 +1411,9 @@
                     titleSw: this.getAttribute('data-title-sw')
                 };
                 
-                // Generate share URL
+                // Generate share URL with parameters
                 const currentUrl = window.location.href.split('?')[0];
-                const shareUrl = `${currentUrl}?video=${currentVideoData.id}&platform=${currentVideoData.platform}&ref=shared`;
+                const shareUrl = `${currentUrl}?video=${currentVideoData.id}&platform=${currentVideoData.platform}&autoplay=1&ref=shared`;
                 
                 // Update share URL input
                 shareUrlInput.value = shareUrl;
@@ -1416,29 +1479,90 @@
             const urlParams = new URLSearchParams(window.location.search);
             const videoId = urlParams.get('video');
             const platform = urlParams.get('platform');
+            const autoplay = urlParams.get('autoplay');
             const ref = urlParams.get('ref');
             
             if (ref === 'shared' && videoId && platform) {
                 // Scroll to videos section
                 document.querySelector('.videos-section').scrollIntoView({ behavior: 'smooth' });
                 
-                // Highlight the shared video
-                const sharedVideo = document.querySelector(`[data-video-id="${videoId}"]`).closest('.video-card');
+                // Find the shared video
+                const sharedVideo = document.querySelector(`[data-video-id="${videoId}"]`);
                 if (sharedVideo) {
-                    sharedVideo.style.boxShadow = '0 0 0 3px var(--primary)';
-                    sharedVideo.style.transform = 'scale(1.02)';
+                    // Highlight the shared video
+                    sharedVideo.classList.add('highlight');
                     
-                    // Remove highlight after 5 seconds
-                    setTimeout(() => {
-                        sharedVideo.style.boxShadow = '';
-                        sharedVideo.style.transform = '';
-                    }, 5000);
+                    // Show autoplay overlay
+                    const autoplayOverlay = document.getElementById('autoplayOverlay');
+                    autoplayOverlay.classList.add('active');
+                    
+                    // Set up autoplay button
+                    document.getElementById('playNowBtn').addEventListener('click', function() {
+                        autoplayOverlay.classList.remove('active');
+                        playVideo(sharedVideo, platform);
+                    });
+                    
+                    // Set up cancel button
+                    document.getElementById('cancelAutoplay').addEventListener('click', function() {
+                        autoplayOverlay.classList.remove('active');
+                        sharedVideo.classList.remove('highlight');
+                        
+                        // Clean up URL without reloading page
+                        const cleanUrl = window.location.href.split('?')[0];
+                        window.history.replaceState({}, document.title, cleanUrl);
+                    });
+                    
+                    // Auto-play if autoplay=1 parameter is set
+                    if (autoplay === '1') {
+                        setTimeout(() => {
+                            autoplayOverlay.classList.remove('active');
+                            playVideo(sharedVideo, platform);
+                        }, 2000);
+                    }
+                }
+            }
+        }
+        
+        // Play video function
+        function playVideo(videoElement, platform) {
+            // Remove highlight after 5 seconds
+            setTimeout(() => {
+                videoElement.classList.remove('highlight');
+            }, 5000);
+            
+            // Clean up URL without reloading page
+            const cleanUrl = window.location.href.split('?')[0];
+            window.history.replaceState({}, document.title, cleanUrl);
+            
+            // Platform-specific autoplay handling
+            if (platform === 'youtube') {
+                const iframe = videoElement.querySelector('iframe');
+                if (iframe) {
+                    // For YouTube, we need to modify the src to add autoplay parameters
+                    const src = iframe.src;
+                    if (src.includes('?')) {
+                        if (!src.includes('autoplay=1')) {
+                            iframe.src = src + '&autoplay=1&mute=1';
+                        }
+                    } else {
+                        iframe.src = src + '?autoplay=1&mute=1';
+                    }
+                }
+            } else if (platform === 'facebook') {
+                // Facebook videos autoplay is handled through their API
+                // We can show a message or simulate a click to play
+                const videoWrapper = videoElement.querySelector('.video-wrapper');
+                if (videoWrapper) {
+                    videoWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
         }
         
         // Check for shared video on page load
-        window.addEventListener('load', handleSharedVideo);
+        window.addEventListener('load', function() {
+            // Set a small delay to ensure all content is loaded
+            setTimeout(handleSharedVideo, 1000);
+        });
 
         // Lazy loading for iframes to improve page speed
         document.addEventListener('DOMContentLoaded', function() {
