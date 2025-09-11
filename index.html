@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KADO ENTERTAINMENT - Premium Streaming Experience</title>
+    <title>KADO ENTERTAINMENT - Video Platform Classification</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #e50914;
             --secondary: #141414;
             --accent: #0071eb;
+            --facebook: #3b5998;
+            --youtube: #ff0000;
             --text: #ffffff;
             --text-secondary: #b3b3b3;
             --background: #000000;
@@ -210,6 +212,23 @@
             font-weight: bold;
         }
         
+        .platform-tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .facebook-tag {
+            background-color: var(--facebook);
+        }
+        
+        .youtube-tag {
+            background-color: var(--youtube);
+        }
+        
         .view-all {
             color: var(--accent);
             text-decoration: none;
@@ -266,7 +285,7 @@
             font-size: 14px;
         }
         
-        /* Facebook Videos Section */
+        /* Videos Section */
         .videos-section {
             background: linear-gradient(to bottom, var(--secondary) 0%, var(--background) 100%);
             padding: 60px 0;
@@ -284,18 +303,46 @@
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s;
+            position: relative;
         }
         
         .video-card:hover {
             transform: translateY(-5px);
         }
         
+        .video-platform {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .video-platform.facebook {
+            background-color: var(--facebook);
+        }
+        
+        .video-platform.youtube {
+            background-color: var(--youtube);
+        }
+        
         .video-wrapper {
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 178%; /* Aspect ratio for the Facebook videos */
             overflow: hidden;
+        }
+        
+        .facebook-video {
+            padding-bottom: 178%; /* Aspect ratio for Facebook videos */
+        }
+        
+        .youtube-video {
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio for YouTube videos */
         }
         
         .video-wrapper iframe {
@@ -309,12 +356,53 @@
         
         .video-info {
             padding: 15px;
-            text-align: center;
         }
         
         .video-title {
             font-size: 18px;
             margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .video-title-swahili {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .video-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        /* Platform Filter */
+        .platform-filter {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 30px;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .filter-btn:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
         }
         
         /* Platform Support */
@@ -460,6 +548,34 @@
             color: var(--text-secondary);
             font-size: 14px;
         }
+
+        /* Language Toggle */
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .language-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--text);
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .language-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .language-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
         
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -485,6 +601,10 @@
             
             .videos-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .platform-filter {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -597,106 +717,104 @@
             </div>
         </section>
         
-        <!-- New Releases -->
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">New Releases</h2>
-                <a href="#" class="view-all">View All</a>
-            </div>
-            
-            <div class="movie-grid">
-                <div class="movie-card">
-                    <img src="https://source.unsplash.com/random/200x300/?movie,2023" alt="Movie" class="movie-poster">
-                    <div class="movie-info">
-                        <h3 class="movie-title">Oppenheimer</h3>
-                        <div class="movie-meta">
-                            <span>2023</span>
-                            <span>8.7 ★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="movie-card">
-                    <img src="https://source.unsplash.com/random/200x300/?movie,2023,action" alt="Movie" class="movie-poster">
-                    <div class="movie-info">
-                        <h3 class="movie-title">John Wick 4</h3>
-                        <div class="movie-meta">
-                            <span>2023</span>
-                            <span>8.0 ★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="movie-card">
-                    <img src="https://source.unsplash.com/random/200x300/?movie,2023,adventure" alt="Movie" class="movie-poster">
-                    <div class="movie-info">
-                        <h3 class="movie-title">Dungeons & Dragons</h3>
-                        <div class="movie-meta">
-                            <span>2023</span>
-                            <span>7.9 ★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="movie-card">
-                    <img src="https://source.unsplash.com/random/200x300/?movie,2023,sci-fi" alt="Movie" class="movie-poster">
-                    <div class="movie-info">
-                        <h3 class="movie-title">The Creator</h3>
-                        <div class="movie-meta">
-                            <span>2023</span>
-                            <span>7.6 ★</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="movie-card">
-                    <img src="https://source.unsplash.com/random/200x300/?movie,2023,horror" alt="Movie" class="movie-poster">
-                    <div class="movie-info">
-                        <h3 class="movie-title">Talk to Me</h3>
-                        <div class="movie-meta">
-                            <span>2023</span>
-                            <span>7.2 ★</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Facebook Videos Section -->
+        <!-- Videos Section with Platform Classification -->
         <section class="videos-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Featured Videos</h2>
+                    <h2 class="section-title">Featured Videos 
+                        <span class="platform-tag facebook-tag">Facebook</span>
+                        <span class="platform-tag youtube-tag">YouTube</span>
+                    </h2>
+                    <div class="language-toggle">
+                        <button class="language-btn active" data-lang="en">English</button>
+                        <button class="language-btn" data-lang="sw">Swahili</button>
+                    </div>
+                </div>
+                
+                <!-- Platform Filter -->
+                <div class="platform-filter">
+                    <button class="filter-btn active" data-filter="all">All Platforms</button>
+                    <button class="filter-btn" data-filter="facebook">Facebook Only</button>
+                    <button class="filter-btn" data-filter="youtube">YouTube Only</button>
                 </div>
                 
                 <div class="videos-grid">
-                    <div class="video-card">
-                        <div class="video-wrapper">
+                    <!-- Facebook Videos -->
+                    <div class="video-card" data-platform="facebook">
+                        <div class="video-platform facebook">Facebook</div>
+                        <div class="video-wrapper facebook-video">
                             <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1175683244322733%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                         </div>
                         <div class="video-info">
-                            <h3 class="video-title">Action Movie Preview</h3>
-                            <p>Get ready for the action thriller of the year</p>
+                            <h3 class="video-title" data-en="Action Movie Preview" data-sw="Hakikisho la Movie ya Action">Action Movie Preview</h3>
+                            <p class="video-description" data-en="Get ready for the action thriller of the year with stunning visual effects and heart-pounding sequences." data-sw="Jitayarishe kwa mshtuko wa mwaka wenye athari za kuona za kustaajabisha na mfululizo wa kusisimua moyo.">Get ready for the action thriller of the year with stunning visual effects and heart-pounding sequences.</p>
                         </div>
                     </div>
                     
-                    <div class="video-card">
-                        <div class="video-wrapper">
+                    <div class="video-card" data-platform="facebook">
+                        <div class="video-platform facebook">Facebook</div>
+                        <div class="video-wrapper facebook-video">
                             <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F720848720788666%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                         </div>
                         <div class="video-info">
-                            <h3 class="video-title">Behind The Scenes</h3>
-                            <p>Exclusive look at our latest production</p>
+                            <h3 class="video-title" data-en="Behind The Scenes" data-sw="Nyuma ya Pazia">Behind The Scenes</h3>
+                            <p class="video-description" data-en="Exclusive look at our latest production with interviews from the cast and crew about the making of this spectacular film." data-sw="Mtazamo wa kipekee juu ya utayarishaji wetu wa hivi karibuni na mahojiano kutoka kwa wahusika na wakandarasi juu ya utengenezaji wa filamu hii ya kustaajabisha.">Exclusive look at our latest production with interviews from the cast and crew.</p>
                         </div>
                     </div>
                     
-                    <div class="video-card">
-                        <div class="video-wrapper">
+                    <div class="video-card" data-platform="facebook">
+                        <div class="video-platform facebook">Facebook</div>
+                        <div class="video-wrapper facebook-video">
                             <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1319015693286565%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                         </div>
                         <div class="video-info">
-                            <h3 class="video-title">Coming Soon</h3>
-                            <p>Teaser for our upcoming series</p>
+                            <h3 class="video-title" data-en="Coming Soon" data-sw="Inakuja Hivi Karibuni">Coming Soon</h3>
+                            <p class="video-description" data-en="Teaser for our upcoming series that will revolutionize the science fiction genre with groundbreaking storytelling." data-sw="Teaser ya mfululizo wetu unaokuja ambao utabadilisha aina ya sayansi ya kubuni kwa hadithi ya kuvunja milango.">Teaser for our upcoming series that will revolutionize the science fiction genre.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- YouTube Videos -->
+                    <div class="video-card" data-platform="youtube">
+                        <div class="video-platform youtube">YouTube</div>
+                        <div class="video-wrapper youtube-video">
+                            <iframe src="https://www.youtube.com/embed/DLMngTEHnuc?si=nT_hktCfv4mI2lFv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title" data-en="Action Movie Trailer" data-sw="Hakikisho la Movie ya Action">Action Movie Trailer</h3>
+                            <p class="video-description" data-en="Experience the thrill of our latest action-packed movie with stunning visual effects and heart-pounding sequences." data-sw="Pata mshtuko wa movie yetu mpya yenye athari za kustaajabisha na mfululizo wa kusisimua moyo.">Experience the thrill of our latest action-packed movie with stunning visual effects.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card" data-platform="youtube">
+                        <div class="video-platform youtube">YouTube</div>
+                        <div class="video-wrapper youtube-video">
+                            <iframe src="https://www.youtube.com/embed/27YXZl66AQM?si=rMZmE9uqauLEgcHS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title" data-en="Behind The Scenes" data-sw="Nyuma ya Pazia">Behind The Scenes</h3>
+                            <p class="video-description" data-en="Exclusive look at our latest production with interviews from the cast and crew about the making of this spectacular film." data-sw="Mtazamo wa kipekee juu ya utayarishaji wetu wa hivi karibuni na mahojiano kutoka kwa wahusika na wakandarasi.">Exclusive look at our latest production with interviews from the cast and crew.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card" data-platform="youtube">
+                        <div class="video-platform youtube">YouTube</div>
+                        <div class="video-wrapper youtube-video">
+                            <iframe src="https://www.youtube.com/embed/ge_UgErt4yo?si=bInVK5sfWWBXB_h6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title" data-en="Coming Soon" data-sw="Inakuja Hivi Karibuni">Coming Soon</h3>
+                            <p class="video-description" data-en="Teaser for our upcoming series that will revolutionize the science fiction genre with groundbreaking storytelling." data-sw="Teaser ya mfululizo wetu unaokuja ambao utabadilisha aina ya sayansi ya kubuni kwa hadithi ya kuvunja milango.">Teaser for our upcoming series that will revolutionize the science fiction genre.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card" data-platform="youtube">
+                        <div class="video-platform youtube">YouTube</div>
+                        <div class="video-wrapper youtube-video">
+                            <iframe src="https://www.youtube.com/embed/ddk_25wr1pc?si=64wGnsfV_yGRBneR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title" data-en="Director's Cut" data-sw="Mpango wa Mkurugenzi">Director's Cut</h3>
+                            <p class="video-description" data-en="Special edition with exclusive scenes and commentary from the director about the creative process." data-sw="Toleo maalum lenye vitendo maalum na maelezo kutoka kwa mkurugenzi kuhusu mchakato wa ubunifu.">Special edition with exclusive scenes and commentary from the director.</p>
                         </div>
                     </div>
                 </div>
@@ -944,6 +1062,74 @@
             card.addEventListener('touchend', function() {
                 this.classList.remove('hover');
             }, {passive: true});
+        });
+
+        // Language toggle functionality
+        document.querySelectorAll('.language-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update button active state
+                document.querySelectorAll('.language-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Update all language-specific content
+                document.querySelectorAll('[data-en]').forEach(element => {
+                    if (lang === 'sw') {
+                        element.textContent = element.getAttribute('data-sw');
+                    } else {
+                        element.textContent = element.getAttribute('data-en');
+                    }
+                });
+            });
+        });
+
+        // Platform filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update button active state
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter videos
+                document.querySelectorAll('.video-card').forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        if (card.getAttribute('data-platform') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Lazy loading for iframes to improve page speed
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyVideos = document.querySelectorAll('.video-wrapper iframe');
+            
+            const lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(video) {
+                    if (video.isIntersecting) {
+                        for (const source in video.target.dataset) {
+                            video.target.setAttribute(source, video.target.dataset[source]);
+                        }
+                        lazyVideoObserver.unobserve(video.target);
+                    }
+                });
+            });
+            
+            lazyVideos.forEach(function(video) {
+                lazyVideoObserver.observe(video);
+            });
         });
     </script>
 </body>
