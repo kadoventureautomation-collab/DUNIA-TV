@@ -3,422 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KADO ENTERTAINMENT - Top Tanzanian Videos & Music</title>
-    <meta name="description" content="Stream the latest Tanzanian music videos, comedy shows, and entertainment content on KADO ENTERTAINMENT. Optimized for mobile and desktop with multi-language support.">
+    <title>KADO ENTERTAINMENT - Premium Streaming Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #e50914;
+            --secondary: #141414;
+            --accent: #0071eb;
+            --text: #ffffff;
+            --text-secondary: #b3b3b3;
+            --background: #000000;
+            --card-bg: #181818;
+            --header-height: 70px;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
-
-        :root {
-            --primary-bg: #0f0f1a;
-            --secondary-bg: #1a1a2e;
-            --accent-color: #ff4d94;
-            --secondary-color: #6a67ce;
-            --text-primary: #ffffff;
-            --text-secondary: #ccccff;
-            --text-muted: #a0a0d0;
-        }
-
+        
         body {
-            background: linear-gradient(to right, var(--primary-bg), var(--secondary-bg));
-            color: var(--text-primary);
+            background-color: var(--background);
+            color: var(--text);
             line-height: 1.6;
         }
-
+        
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         /* Header Styles */
         header {
-            background: linear-gradient(to right, var(--secondary-bg), #16213e);
-            padding: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            position: sticky;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+            position: fixed;
             top: 0;
-            z-index: 100;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: background-color 0.3s ease;
         }
-
+        
+        header.scrolled {
+            background-color: var(--secondary);
+        }
+        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
-
+        
         .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 15px;
         }
-
+        
         .logo i {
-            font-size: 2.5rem;
-            color: var(--accent-color);
+            margin-right: 10px;
         }
-
-        .logo h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .search-container {
-            flex: 1;
-            max-width: 500px;
-            margin: 0 20px;
-            position: relative;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 50px;
-            border: none;
-            background: #2a2a4a;
-            color: white;
-            padding-left: 45px;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .search-box:focus {
-            outline: none;
-            background: #3a3a6a;
-            box-shadow: 0 0 0 2px var(--secondary-color);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--secondary-color);
-        }
-
-        .user-actions {
-            display: flex;
-            gap: 15px;
-        }
-
-        .user-actions button {
-            background: var(--secondary-color);
-            border: none;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-weight: 500;
-        }
-
-        .user-actions button:hover {
-            background: var(--accent-color);
-        }
-
-        .language-selector {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-left: 15px;
-        }
-
-        .language-selector select {
-            background: #2a2a4a;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
+        
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
-            margin-top: 15px;
-            flex-wrap: wrap;
         }
-
-        nav a {
-            color: #e6e6ff;
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 16px;
             transition: color 0.3s;
-            padding: 8px 15px;
-            border-radius: 20px;
         }
-
-        nav a:hover, nav a.active {
-            color: var(--accent-color);
-            background: rgba(255, 77, 148, 0.1);
+        
+        nav ul li a:hover {
+            color: var(--primary);
         }
-
-        /* Hero Video Section */
-        .featured-videos {
-            margin: 30px 0;
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
         }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
-
-        .main-video {
-            background: var(--secondary-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .video-container {
+        
+        .search-box {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
+            margin-right: 20px;
         }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        
+        .search-box input {
+            background: rgba(255, 255, 255, 0.1);
             border: none;
+            border-radius: 4px;
+            color: var(--text);
+            padding: 8px 15px 8px 35px;
+            width: 200px;
+            transition: width 0.3s, background 0.3s;
         }
-
-        .video-info {
-            padding: 20px;
+        
+        .search-box input:focus {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
         }
-
-        .video-info h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-        }
-
-        .video-info p {
+        
+        .search-box i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
             color: var(--text-secondary);
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: #f40612;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            position: relative;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%), url('https://source.unsplash.com/random/1600x900/?movie') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            padding: 0 40px;
+            max-width: 600px;
+        }
+        
+        .hero-badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
             margin-bottom: 15px;
         }
-
-        .video-meta {
+        
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .hero-actions {
             display: flex;
             gap: 15px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
         }
-
-        .side-videos {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
         }
-
-        .side-video-item {
-            display: flex;
-            gap: 15px;
-            background: var(--secondary-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            cursor: pointer;
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
-
-        .side-video-item:hover {
-            transform: translateX(5px);
+        
+        /* Section Styles */
+        section {
+            padding: 40px 0;
         }
-
-        .side-thumb {
-            width: 120px;
-            height: 80px;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .side-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .side-video-item:hover .side-thumb img {
-            transform: scale(1.1);
-        }
-
-        .side-info {
-            padding: 10px 10px 10px 0;
-            flex: 1;
-        }
-
-        .side-info h3 {
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-            color: var(--accent-color);
-        }
-
-        .side-info p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* Trending Sections */
-        .trending-section {
-            margin: 40px 0;
-        }
-
+        
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-
-        .section-header h2 {
-            font-size: 1.8rem;
-            color: var(--accent-color);
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
         }
-
+        
         .view-all {
-            color: var(--secondary-color);
+            color: var(--accent);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: bold;
         }
-
+        
         .view-all:hover {
-            color: var(--accent-color);
+            text-decoration: underline;
         }
-
-        .trending-grid {
+        
+        /* Movie Grid */
+        .movie-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
-
-        .trending-card {
-            background: var(--secondary-bg);
-            border-radius: 12px;
+        
+        .movie-card {
+            background: var(--card-bg);
+            border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
-
-        .trending-card:hover {
-            transform: translateY(-5px);
+        
+        .movie-card:hover {
+            transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
-
-        .trending-thumb {
-            position: relative;
-            padding-bottom: 56.25%;
-            overflow: hidden;
-        }
-
-        .trending-thumb img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        
+        .movie-poster {
             width: 100%;
-            height: 100%;
+            aspect-ratio: 2/3;
             object-fit: cover;
-            transition: transform 0.5s;
         }
-
-        .trending-card:hover .trending-thumb img {
-            transform: scale(1.1);
-        }
-
-        .play-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .trending-thumb:hover .play-overlay {
-            opacity: 1;
-        }
-
-        .play-overlay i {
-            font-size: 3rem;
-            color: white;
-        }
-
-        .trending-info {
+        
+        .movie-info {
             padding: 15px;
         }
-
-        .trending-info h3 {
-            font-size: 1rem;
-            margin-bottom: 8px;
-            color: var(--accent-color);
+        
+        .movie-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-
-        .trending-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .trending-meta {
+        
+        .movie-meta {
             display: flex;
             justify-content: space-between;
-            color: var(--text-muted);
-            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 14px;
         }
-
+        
         /* Facebook Videos Section */
-        .facebook-videos {
-            margin: 40px 0;
+        .videos-section {
+            background: linear-gradient(to bottom, var(--secondary) 0%, var(--background) 100%);
+            padding: 60px 0;
         }
-
-        .facebook-grid {
+        
+        .videos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 30px;
+            margin-top: 40px;
         }
-
-        .facebook-video {
-            background: var(--secondary-bg);
-            border-radius: 12px;
+        
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s;
         }
-
-        .facebook-video:hover {
+        
+        .video-card:hover {
             transform: translateY(-5px);
         }
-
-        .fb-video-container {
+        
+        .video-wrapper {
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 178%; /* Aspect ratio for Facebook vertical videos */
+            padding-bottom: 178%; /* Aspect ratio for the Facebook videos */
             overflow: hidden;
         }
-
-        .fb-video-container iframe {
+        
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -426,270 +306,645 @@
             height: 100%;
             border: none;
         }
-
-        .fb-video-info {
+        
+        .video-info {
             padding: 15px;
             text-align: center;
         }
-
-        .fb-video-info h3 {
-            font-size: 1rem;
-            margin-bottom: 8px;
-            color: var(--accent-color);
+        
+        .video-title {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
-
-        .fb-video-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        
+        /* Platform Support */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
-
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 40px 0;
-        }
-
-        .pagination button {
-            background: var(--secondary-bg);
-            border: none;
-            color: var(--text-secondary);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .pagination button:hover, .pagination button.active {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background: #0c0c14;
-            padding: 40px 0;
+        
+        .platform-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
             text-align: center;
-            margin-top: 50px;
         }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        
+        .platform-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
-
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-color);
+        
+        .platform-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Features Section */
+        .features {
+            background: linear-gradient(to bottom, var(--secondary) 0%, var(--background) 100%);
+            padding: 60px 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: var(--primary);
             margin-bottom: 20px;
         }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
+        
+        .feature-title {
+            font-size: 20px;
+            margin-bottom: 15px;
         }
-
-        .footer-links a {
+        
+        /* FAQ Section */
+        .faq-list {
+            margin-top: 30px;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .faq-question {
+            padding: 15px 0;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 0 15px 0;
+            color: var(--text-secondary);
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: var(--text);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
             color: var(--text-secondary);
             text-decoration: none;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--text);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 20px;
             transition: color 0.3s;
         }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
+        
+        .social-links a:hover {
+            color: var(--primary);
         }
-
-        .social-icons {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .social-icons a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 45px;
-            height: 45px;
-            background: #2a2a4a;
-            color: var(--text-secondary);
-            border-radius: 50%;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .social-icons a:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .trending-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .search-container {
-                order: 3;
-                margin: 15px 0;
-                max-width: 100%;
-            }
-
-            .facebook-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .trending-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                gap: 10px;
-                justify-content: center;
-            }
-
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .user-actions {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .side-video-item {
-                flex-direction: column;
-            }
-
-            .side-thumb {
-                width: 100%;
-                height: 120px;
-            }
-
-            .fb-video-container {
-                padding-bottom: 150%; /* Adjust for smaller screens */
-            }
-        }
-
-        /* Video optimization styles */
-        .video-optimized {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Language modal */
-        .language-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-
-        .language-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            width: 90%;
-            max-width: 500px;
-            background: var(--secondary-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            padding: 30px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .language-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .language-option {
-            padding: 15px;
-            background: #2a2a4a;
-            border-radius: 8px;
+        
+        .footer-bottom {
             text-align: center;
-            cursor: pointer;
-            transition: background 0.3s;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: var(--text-secondary);
+            font-size: 14px;
         }
-
-        .language-option:hover {
-            background: var(--secondary-color);
-        }
-
-        /* Loading states */
-        .loading {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(90deg, #2a2a4a 25%, #3a3a6a 50%, #2a2a4a 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% {
-                background-position: 200% 0;
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
             }
-            100% {
-                background-position: -200% 0;
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .movie-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .search-box input {
+                width: 150px;
+            }
+            
+            .search-box input:focus {
+                width: 180px;
+            }
+            
+            .videos-grid {
+                grid-template-columns: 1fr;
             }
         }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-play-circle"></i> KADO ENTERTAINMENT
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">TV Shows</a></li>
+                    <li><a href="#">New Releases</a></li>
+                    <li><a href="#">My List</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <button class="btn">Sign In</button>
+            </div>
+        </div>
+    </header>
 
-        .loading::
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">NEW</span>
+            <h1 class="hero-title">AVENGERS: ENDGAME</h1>
+            <p class="hero-description">After the devastating events of Infinity War, the Avengers assemble once more to reverse Thanos' actions and restore balance to the universe.</p>
+            <div class="hero-actions">
+                <button class="btn"><i class="fas fa-play"></i> Play Now</button>
+                <button class="btn btn-secondary"><i class="fas fa-plus"></i> My List</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Trending Now -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Trending Now</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,action" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">The Dark Knight</h3>
+                        <div class="movie-meta">
+                            <span>2008</span>
+                            <span>9.0 ★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,sci-fi" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Inception</h3>
+                        <div class="movie-meta">
+                            <span>2010</span>
+                            <span>8.8 ★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,adventure" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Interstellar</h3>
+                        <div class="movie-meta">
+                            <span>2014</span>
+                            <span>8.6 ★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,drama" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">The Shawshank Redemption</h3>
+                        <div class="movie-meta">
+                            <span>1994</span>
+                            <span>9.3 ★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,comedy" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">The Grand Budapest Hotel</h3>
+                        <div class="movie-meta">
+                            <span>2014</span>
+                            <span>8.1 ★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- New Releases -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">New Releases</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,2023" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Oppenheimer</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>8.7 ★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,2023,action" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">John Wick 4</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>8.0 ★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,2023,adventure" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Dungeons & Dragons</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>7.9 ★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,2023,sci-fi" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">The Creator</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>7.6 ★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="movie-card">
+                    <img src="https://source.unsplash.com/random/200x300/?movie,2023,horror" alt="Movie" class="movie-poster">
+                    <div class="movie-info">
+                        <h3 class="movie-title">Talk to Me</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>7.2 ★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Facebook Videos Section -->
+        <section class="videos-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Videos</h2>
+                </div>
+                
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1175683244322733%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Action Movie Preview</h3>
+                            <p>Get ready for the action thriller of the year</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F720848720788666%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Behind The Scenes</h3>
+                            <p>Exclusive look at our latest production</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1319015693286565%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Coming Soon</h3>
+                            <p>Teaser for our upcoming series</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Platform Support -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Available on All Your Devices</h2>
+            </div>
+            
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3 class="platform-name">iOS</h3>
+                    <p>Enjoy on your iPhone, iPad, and iPod Touch</p>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <h3 class="platform-name">Android</h3>
+                    <p>Stream on your Android phone and tablet</p>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3 class="platform-name">Apple TV</h3>
+                    <p>Watch on your big screen with Apple TV</p>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3 class="platform-name">Android TV</h3>
+                    <p>Enjoy on your Android TV devices</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose KADO ENTERTAINMENT?</h2>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hd"></i>
+                        </div>
+                        <h3 class="feature-title">HD Streaming</h3>
+                        <p>Enjoy all your favorite movies and TV shows in stunning high definition quality.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3 class="feature-title">Instant Notifications</h3>
+                        <p>Get alerts for new releases, updates, and personalized recommendations.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3 class="feature-title">Download & Watch Offline</h3>
+                        <p>Save your data by downloading content to watch later without internet.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="feature-title">Multi-Language Support</h3>
+                        <p>Enjoy content in multiple languages with customized subtitle options.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="feature-title">No Registration Required</h3>
+                        <p>Start watching immediately without any sign-up process or subscription.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3 class="feature-title">Network Diagnostics</h3>
+                        <p>Built-in tools to troubleshoot and optimize your streaming experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is KADO ENTERTAINMENT?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>KADO ENTERTAINMENT is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. You can watch as much as you want, whenever you want without a single commercial - all for one low monthly price.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much does KADO ENTERTAINMENT cost?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Watch KADO ENTERTAINMENT on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from $9.99 to $19.99 a month. No extra costs, no contracts.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Where can I watch?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Watch anywhere, anytime. Sign in with your KADO ENTERTAINMENT account to watch instantly on the web at kadoentertainment.com from your personal computer or on any internet-connected device that offers the KADO ENTERTAINMENT app, including smart TVs, smartphones, tablets, streaming media players and game consoles.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I cancel?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>KADO ENTERTAINMENT is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What can I watch on KADO ENTERTAINMENT?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>KADO ENTERTAINMENT has an extensive library of feature films, documentaries, TV shows, anime, award-winning KADO ENTERTAINMENT originals, and more. Watch as much as you want, anytime you want.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Preferences</a></li>
+                        <li><a href="#">Corporate Information</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Download Our App</h3>
+                    <p>Watch on your favorite devices</p>
+                    <div class="app-download">
+                        <a href="#" class="btn">Google Play</a>
+                        <a href="#" class="btn">App Store</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 KADO ENTERTAINMENT. All Rights Reserved.</p>
+                <p>This app uses the TMDb API but is not endorsed or certified by TMDb. </p>
+                <p>Movie data and images are from TMDb (licensed under CC BY-NC 4.0). </p>
+                <p>We do not host any videos. All content is sourced from public platforms and domains. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Movie card hover effect for touch devices
+        document.querySelectorAll('.movie-card').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.classList.add('hover');
+            }, {passive: true});
+            
+            card.addEventListener('touchend', function() {
+                this.classList.remove('hover');
+            }, {passive: true});
+        });
+    </script>
+</body>
+</html>
