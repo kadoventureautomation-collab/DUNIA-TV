@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KADO ENTERTAINMENT - Video Platform Classification</title>
+    <title>KADO ENTERTAINMENT - Premium Streaming Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,6 +12,9 @@
             --accent: #0071eb;
             --facebook: #3b5998;
             --youtube: #ff0000;
+            --twitter: #1da1f2;
+            --linkedin: #0077b5;
+            --whatsapp: #25d366;
             --text: #ffffff;
             --text-secondary: #b3b3b3;
             --background: #000000;
@@ -375,34 +378,141 @@
             font-size: 14px;
             color: var(--text-secondary);
             line-height: 1.5;
+            margin-bottom: 15px;
         }
         
-        /* Platform Filter */
-        .platform-filter {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0 30px;
-            gap: 15px;
-        }
-        
-        .filter-btn {
+        /* Share Button */
+        .share-btn {
             background: transparent;
             border: 1px solid var(--text-secondary);
             color: var(--text);
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 6px 12px;
+            border-radius: 4px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
             transition: all 0.3s;
+            font-size: 14px;
         }
         
-        .filter-btn.active {
-            background-color: var(--primary);
-            border-color: var(--primary);
+        .share-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text);
         }
         
-        .filter-btn:hover {
-            background-color: var(--primary);
-            border-color: var(--primary);
+        /* Share Modal */
+        .share-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .share-modal.active {
+            display: flex;
+        }
+        
+        .share-modal-content {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .share-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .share-modal-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .close-modal {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            background: var(--secondary);
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        
+        .share-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .share-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .share-facebook {
+            color: var(--facebook);
+        }
+        
+        .share-twitter {
+            color: var(--twitter);
+        }
+        
+        .share-linkedin {
+            color: var(--linkedin);
+        }
+        
+        .share-whatsapp {
+            color: var(--whatsapp);
+        }
+        
+        .share-link {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .share-link input {
+            flex: 1;
+            background: var(--secondary);
+            border: 1px solid var(--text-secondary);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            padding: 10px;
+            color: var(--text);
+        }
+        
+        .copy-link-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            padding: 0 15px;
+            cursor: pointer;
         }
         
         /* Platform Support */
@@ -577,6 +687,55 @@
             color: white;
         }
         
+        /* Platform Filter */
+        .platform-filter {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 30px;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .filter-btn:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s;
+        }
+        
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             nav ul {
@@ -605,6 +764,10 @@
             
             .platform-filter {
                 flex-wrap: wrap;
+            }
+            
+            .share-options {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -748,6 +911,9 @@
                         <div class="video-info">
                             <h3 class="video-title" data-en="Action Movie Preview" data-sw="Hakikisho la Movie ya Action">Action Movie Preview</h3>
                             <p class="video-description" data-en="Get ready for the action thriller of the year with stunning visual effects and heart-pounding sequences." data-sw="Jitayarishe kwa mshtuko wa mwaka wenye athari za kuona za kustaajabisha na mfululizo wa kusisimua moyo.">Get ready for the action thriller of the year with stunning visual effects and heart-pounding sequences.</p>
+                            <button class="share-btn" data-video-id="fb-1" data-platform="facebook" data-title-en="Action Movie Preview" data-title-sw="Hakikisho la Movie ya Action">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                     
@@ -759,6 +925,9 @@
                         <div class="video-info">
                             <h3 class="video-title" data-en="Behind The Scenes" data-sw="Nyuma ya Pazia">Behind The Scenes</h3>
                             <p class="video-description" data-en="Exclusive look at our latest production with interviews from the cast and crew about the making of this spectacular film." data-sw="Mtazamo wa kipekee juu ya utayarishaji wetu wa hivi karibuni na mahojiano kutoka kwa wahusika na wakandarasi juu ya utengenezaji wa filamu hii ya kustaajabisha.">Exclusive look at our latest production with interviews from the cast and crew.</p>
+                            <button class="share-btn" data-video-id="fb-2" data-platform="facebook" data-title-en="Behind The Scenes" data-title-sw="Nyuma ya Pazia">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                     
@@ -770,6 +939,9 @@
                         <div class="video-info">
                             <h3 class="video-title" data-en="Coming Soon" data-sw="Inakuja Hivi Karibuni">Coming Soon</h3>
                             <p class="video-description" data-en="Teaser for our upcoming series that will revolutionize the science fiction genre with groundbreaking storytelling." data-sw="Teaser ya mfululizo wetu unaokuja ambao utabadilisha aina ya sayansi ya kubuni kwa hadithi ya kuvunja milango.">Teaser for our upcoming series that will revolutionize the science fiction genre.</p>
+                            <button class="share-btn" data-video-id="fb-3" data-platform="facebook" data-title-en="Coming Soon" data-title-sw="Inakuja Hivi Karibuni">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                     
@@ -782,6 +954,9 @@
                         <div class="video-info">
                             <h3 class="video-title" data-en="Action Movie Trailer" data-sw="Hakikisho la Movie ya Action">Action Movie Trailer</h3>
                             <p class="video-description" data-en="Experience the thrill of our latest action-packed movie with stunning visual effects and heart-pounding sequences." data-sw="Pata mshtuko wa movie yetu mpya yenye athari za kustaajabisha na mfululizo wa kusisimua moyo.">Experience the thrill of our latest action-packed movie with stunning visual effects.</p>
+                            <button class="share-btn" data-video-id="yt-1" data-platform="youtube" data-title-en="Action Movie Trailer" data-title-sw="Hakikisho la Movie ya Action">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                     
@@ -793,6 +968,9 @@
                         <div class="video-info">
                             <h3 class="video-title" data-en="Behind The Scenes" data-sw="Nyuma ya Pazia">Behind The Scenes</h3>
                             <p class="video-description" data-en="Exclusive look at our latest production with interviews from the cast and crew about the making of this spectacular film." data-sw="Mtazamo wa kipekee juu ya utayarishaji wetu wa hivi karibuni na mahojiano kutoka kwa wahusika na wakandarasi.">Exclusive look at our latest production with interviews from the cast and crew.</p>
+                            <button class="share-btn" data-video-id="yt-2" data-platform="youtube" data-title-en="Behind The Scenes" data-title-sw="Nyuma ya Pazia">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                     
@@ -804,6 +982,9 @@
                         <div class="video-info">
                             <h3 class="video-title" data-en="Coming Soon" data-sw="Inakuja Hivi Karibuni">Coming Soon</h3>
                             <p class="video-description" data-en="Teaser for our upcoming series that will revolutionize the science fiction genre with groundbreaking storytelling." data-sw="Teaser ya mfululizo wetu unaokuja ambao utabadilisha aina ya sayansi ya kubuni kwa hadithi ya kuvunja milango.">Teaser for our upcoming series that will revolutionize the science fiction genre.</p>
+                            <button class="share-btn" data-video-id="yt-3" data-platform="youtube" data-title-en="Coming Soon" data-title-sw="Inakuja Hivi Karibuni">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                     
@@ -815,6 +996,9 @@
                         <div class="video-info">
                             <h3 class="video-title" data-en="Director's Cut" data-sw="Mpango wa Mkurugenzi">Director's Cut</h3>
                             <p class="video-description" data-en="Special edition with exclusive scenes and commentary from the director about the creative process." data-sw="Toleo maalum lenye vitendo maalum na maelezo kutoka kwa mkurugenzi kuhusu mchakato wa ubunifu.">Special edition with exclusive scenes and commentary from the director.</p>
+                            <button class="share-btn" data-video-id="yt-4" data-platform="youtube" data-title-en="Director's Cut" data-title-sw="Mpango wa Mkurugenzi">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1034,6 +1218,41 @@
         </div>
     </footer>
 
+    <!-- Share Modal -->
+    <div class="share-modal" id="shareModal">
+        <div class="share-modal-content">
+            <div class="share-modal-header">
+                <h3 class="share-modal-title">Share This Video</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="share-options">
+                <div class="share-option" data-social="facebook">
+                    <i class="fab fa-facebook-f share-icon share-facebook"></i>
+                    <span>Facebook</span>
+                </div>
+                <div class="share-option" data-social="twitter">
+                    <i class="fab fa-twitter share-icon share-twitter"></i>
+                    <span>Twitter</span>
+                </div>
+                <div class="share-option" data-social="linkedin">
+                    <i class="fab fa-linkedin-in share-icon share-linkedin"></i>
+                    <span>LinkedIn</span>
+                </div>
+                <div class="share-option" data-social="whatsapp">
+                    <i class="fab fa-whatsapp share-icon share-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </div>
+            </div>
+            <div class="share-link">
+                <input type="text" id="shareUrl" readonly>
+                <button class="copy-link-btn" id="copyLinkBtn">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Link copied to clipboard!</div>
+
     <script>
         // Header scroll effect
         window.addEventListener('scroll', function() {
@@ -1111,6 +1330,115 @@
                 });
             });
         });
+
+        // Share functionality
+        const shareModal = document.getElementById('shareModal');
+        const shareUrlInput = document.getElementById('shareUrl');
+        const copyLinkBtn = document.getElementById('copyLinkBtn');
+        const toast = document.getElementById('toast');
+        let currentVideoData = {};
+        
+        // Open share modal
+        document.querySelectorAll('.share-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                currentVideoData = {
+                    id: this.getAttribute('data-video-id'),
+                    platform: this.getAttribute('data-platform'),
+                    titleEn: this.getAttribute('data-title-en'),
+                    titleSw: this.getAttribute('data-title-sw')
+                };
+                
+                // Generate share URL
+                const currentUrl = window.location.href.split('?')[0];
+                const shareUrl = `${currentUrl}?video=${currentVideoData.id}&platform=${currentVideoData.platform}&ref=shared`;
+                
+                // Update share URL input
+                shareUrlInput.value = shareUrl;
+                
+                // Show modal
+                shareModal.classList.add('active');
+            });
+        });
+        
+        // Close modal
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            shareModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        shareModal.addEventListener('click', function(e) {
+            if (e.target === shareModal) {
+                shareModal.classList.remove('active');
+            }
+        });
+        
+        // Copy link to clipboard
+        copyLinkBtn.addEventListener('click', function() {
+            shareUrlInput.select();
+            document.execCommand('copy');
+            
+            // Show toast notification
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        });
+        
+        // Social sharing
+        document.querySelectorAll('.share-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const social = this.getAttribute('data-social');
+                const url = encodeURIComponent(shareUrlInput.value);
+                const title = encodeURIComponent(currentVideoData.titleEn);
+                let shareLink = '';
+                
+                switch(social) {
+                    case 'facebook':
+                        shareLink = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                        break;
+                    case 'twitter':
+                        shareLink = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                        break;
+                    case 'linkedin':
+                        shareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                        break;
+                    case 'whatsapp':
+                        shareLink = `https://wa.me/?text=${title} ${url}`;
+                        break;
+                }
+                
+                window.open(shareLink, '_blank');
+            });
+        });
+        
+        // Handle shared video URL parameters
+        function handleSharedVideo() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoId = urlParams.get('video');
+            const platform = urlParams.get('platform');
+            const ref = urlParams.get('ref');
+            
+            if (ref === 'shared' && videoId && platform) {
+                // Scroll to videos section
+                document.querySelector('.videos-section').scrollIntoView({ behavior: 'smooth' });
+                
+                // Highlight the shared video
+                const sharedVideo = document.querySelector(`[data-video-id="${videoId}"]`).closest('.video-card');
+                if (sharedVideo) {
+                    sharedVideo.style.boxShadow = '0 0 0 3px var(--primary)';
+                    sharedVideo.style.transform = 'scale(1.02)';
+                    
+                    // Remove highlight after 5 seconds
+                    setTimeout(() => {
+                        sharedVideo.style.boxShadow = '';
+                        sharedVideo.style.transform = '';
+                    }, 5000);
+                }
+            }
+        }
+        
+        // Check for shared video on page load
+        window.addEventListener('load', handleSharedVideo);
 
         // Lazy loading for iframes to improve page speed
         document.addEventListener('DOMContentLoaded', function() {
