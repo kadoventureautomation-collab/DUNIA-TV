@@ -208,6 +208,23 @@
                         View All <i class="fas fa-arrow-right ml-1"></i>
                     </button>
                 </div>
+                
+                <!-- MovieBox Embed -->
+                <div class="mb-8 bg-card rounded-xl overflow-hidden shadow-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4">Featured Rankings</h3>
+                        <div class="flex justify-center">
+                            <iframe 
+                                src="https://moviebox.ph/ranking-list/eJvhCT8w3t1?id=1232643093049001320" 
+                                width="800" 
+                                height="600" 
+                                style="border:0; max-width: 100%; height: auto;"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6" id="trending-movies-grid">
                     <!-- Movies will be populated by JavaScript -->
                 </div>
@@ -360,12 +377,6 @@
                 <div>
                     <h3 class="font-semibold mb-4">Contact</h3>
                     <div class="text-sm">
-                        <p class="text-muted-foreground mb-2">
-                            <i class="fas fa-envelope mr-2"></i>
-                            <a href="mailto:moviebox.ng@mbox.ng" class="hover:text-foreground transition-colors" data-testid="contact-email">
-                                moviebox.ng@mbox.ng
-                            </a>
-                        </p>
                         <p class="text-muted-foreground mb-4">
                             <i class="fas fa-globe mr-2"></i>
                             Available in 15+ languages
